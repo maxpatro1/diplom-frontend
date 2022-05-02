@@ -1,16 +1,17 @@
 import axios from 'axios'
 const URL = 'http://127.0.0.1:8000'
+axios.defaults.baseURL = URL
 export default class Resource {
     static async fetch (params) {
         if (params !== undefined) {
             params = {params: params}
         }
-        const { data } = await axios.get(URL + this.url + '/all', params)
+        const { data } = await axios.get(this.url + '/all', params)
         return data;
     }
 
     static async get (params) {
-        const { data } = await axios.get(URL + this.url + '/' + params.id)
+        const { data } = await axios.get(this.url + '/' + params.id)
         return data;
     }
 
@@ -26,7 +27,7 @@ export default class Resource {
     }
 
     static async delete (params) {
-        const { data } = await axios.delete(URL + this.url + '/' + params.id, params);
+        const { data } = await axios.delete(this.url + '/' + params.id, params);
         return data
     }
 
