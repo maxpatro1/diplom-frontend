@@ -1,7 +1,7 @@
 <template>
   <div class="row m-0">
     <CustomHeader :labs="labs"></CustomHeader>
-    <div class="width-50">
+    <div class="width-60">
       <div class="lab-name d-flex justify-content-center align-items-center mx-4">
         <span class="lab-text">Технологическая установка</span>
       </div>
@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-    <div class="width-50 d-flex justify-content-center">
+    <div class="width-40 d-flex justify-content-center">
       <div class="task-card mt-3">
         <div class="task-header m-0 d-flex justify-content-center align-items-center">
         <span class="lab-text">Задание: </span>
@@ -121,12 +121,13 @@
                  Построить кривую откачки с помощью ТМН от 1000 Па до 10 <sup>-3</sup> Па
               </li>
             </ul>
-            Подробное описание лабораторной работы <a target="_blank" href="https://web.telegram.org/bf38d96b-87f7-4357-82c7-39dc0a78d644">тут</a>
+            Подробное описание лабораторной работы
+            <a download href="../../../../assets/document.pdf">тут</a>
           </span>
         </div>
         <div class="mt-2 row justify-content-center align-items-center">
           <div class="tmp-pump-parameters-card m-0">
-            <span class="parameters-header">Параметры насоса TMP</span>
+            <span class="parameters-header">Параметры насоса ТМН</span>
             <div class="mt-1">
               <div class="row mt-1 align-items-center">
                 <div class="parameters-letter task-text">S</div>
@@ -151,7 +152,7 @@
             </div>
           </div>
           <div class="flp-pump-parameters-card">
-            <span class="parameters-header">Параметры насоса FLP</span>
+            <span class="parameters-header">Параметры насоса ФВН</span>
             <div class="mt-1">
               <div class="row mt-1 align-items-center">
                 <div class="parameters-letter task-text">S</div>
@@ -229,16 +230,17 @@
       </div>
     </div>
     <b-sidebar title="Лабораторные работы" no-header id="journal" right backdrop shadow>
-        <h5 class="my-3">Журнал</h5>
+        <h5 class="my-3 mx-1">Журнал</h5>
         <b-list-group>
           <b-list-group-item class="m-1" :variant="message.class" v-for="message in journal" :key="message.id">
               {{ message.text }}
           </b-list-group-item>
         </b-list-group>
     </b-sidebar>
-    <b-toast id="critical" variant="danger" toaster="b-toaster-top-center" no-close-button>
-      Критическая ошибка
-    </b-toast>
+    <div v-if="haveError" class="error">
+      <div>Критическая ошибка!</div>
+      <b-button class="error-button" variant="danger" @click="test">Ок</b-button>
+    </div>
   </div>
 </template>
 
@@ -283,16 +285,23 @@ export default {
         isTMPopen: null,
         isStarted: null
       },
+      haveError: false,
       journal: []
     }
   },
   methods: {
+    test() {
+      this.haveError = false
+    },
     chamberOpen(chamberName) {
       this.chambers[chamberName] = !this.chambers[chamberName]
       if (chamberName === 'isTurnOn' && this.chambers.isTurnOn) {
         this.chambers.isStarted = true
-      } else  {
-        this.chambers[chamberName] ? this.journal.push({text: `${chamberName.split('is')[1].split('open')[0]} клапан был открыт`, class: 'success'}) : this.journal.push({text: `${chamberName} клапан был закрыт`, class: 'success'})
+      } else {
+        if ((chamberName === 'isV1open' && this.chambers['isV3open']) || (chamberName === 'isV3open' && this.chambers['isV1open'])) {
+          this.haveError = true
+        }
+        this.chambers[chamberName] ? this.journal.push({text: `${chamberName.split('is')[1].split('open')[0]} клапан был открыт`, class: 'success'}) : this.journal.push({text: `${chamberName.split('is')[1].split('open')[0]} клапан был закрыт`, class: 'success'})
       }
 
     },
@@ -423,8 +432,8 @@ export default {
     },
     isV1V3open() {
       if (this.isV1V3open) {
-      this.journal.push({text: `Критическая ошибка`, class: 'danger'})
-        this.chambers = {
+      this.journal.push({text: `Критическая ошибка`, class: 'danger'});
+      this.chambers = {
         isTurnOn: null,
         isV1open: null,
         isV2open: null,
@@ -433,6 +442,8 @@ export default {
         isTMPopen: null,
         isStarted: null
       }
+      this.FLPPressure = 0;
+      this.TMPPressure = 0
       }
     }
   },

@@ -4,8 +4,8 @@
         <div class="align-content-center">
           <b-navbar-brand class="mx-3">
             <b-icon-list v-if="labs" class="icon-size mx-2" v-b-toggle.sidebar-backdrop></b-icon-list>
-            <router-link class="router-link" to="/student/courses">
-              c o u r s e s
+            <router-link class="router-link ml-3" to="/student/courses">
+              <span class="header-text">ЛЭТИ</span><span class="header-text-lab">Л@Б</span>
             </router-link>
 <!--            <span v-if="getLabName">/ l a b {{ $route.path.split('/')[5] }}</span>-->
           </b-navbar-brand>
@@ -48,6 +48,16 @@ export default {
   }
   .icon-size {
     width: 20px;
+  }
+  .header-text {
+    font-family: 'Courier New',   monospace;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .header-text-lab {
+    font-size: 13px;
+    font-family: 'Courier New',   monospace;
+    font-weight: 100;
   }
   a {
     color: black;

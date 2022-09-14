@@ -5,7 +5,7 @@
         <div class="float-end">
           <span :class="statusStyle">{{ statusText }}</span>
         </div>
-        <b-card-img class="my-2" src="https://placekitten.com/1000/300"/>
+        <b-card-img class="my-2 img-width" :src="require(`../../../assets/courses/${course.id}.jpg`)"/>
         <h5 class="mt-2 text-title"><b>{{ course.name }}</b></h5>
         <b-card-text class="text-description mt-2">
           <small>{{ course.description }}</small>
@@ -38,6 +38,10 @@ export default {
 </script>
 
 <style scoped>
+.img-width {
+  width: 240px;
+  height: 223px;
+}
   .scale {
     transition: 0.5s; /* Время эффекта */
   }

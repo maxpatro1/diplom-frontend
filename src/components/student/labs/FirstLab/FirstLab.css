@@ -1,4 +1,24 @@
  textarea { resize:none; height: 8.5vh }
+ .error {
+   position: absolute;
+   width: 200px;
+   height: 100px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   background-color: rgb(220,53,69);
+   top: 40%;
+   left: 40%;
+   border-radius: 15px;
+ }
+  .width-60 {
+    width: 55%;
+  }
+  .width-40 {
+    width: 45%;
+  }
   .width-80 {
     width: 75%;
   }

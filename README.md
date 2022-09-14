@@ -1,16 +1,16 @@
-# frontend
+# Frontend для ЛЭТИLAB)
 
-## Project setup
+## Установка зависимостей
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Развертывание проекта для разработки (dev)
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Развертывание проекта для прода (prod)
 ```
 npm run build
 ```
@@ -19,6 +19,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

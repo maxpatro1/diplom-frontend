@@ -58,7 +58,6 @@ export default class FirstLabRules {
         const Seff = (S * Ucurr) / (S + Ucurr)
         const Pmin = Qin / Seff
         Pcurr = Pmin + (100000 - Pmin) * Math.exp(-0.07 * (Seff / V) * t)
-        console.log(Pcurr)
         return Pcurr
     }
 
