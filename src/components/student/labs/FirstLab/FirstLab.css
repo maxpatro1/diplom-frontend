@@ -135,10 +135,10 @@
   .atm {
     width: 10vw;
     height: 12vh;
-    /*background: #FFFFFF;*/
-    /*border: 5px solid #BFBFBF;*/
+    background: #FFFFFF;
+    border: 5px solid #BFBFBF;
     box-sizing: border-box;
-    /*border-radius: 15px;*/
+    border-radius: 15px;
     color: black;
     margin-left: 14.5vw;
   }

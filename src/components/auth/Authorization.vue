@@ -59,10 +59,10 @@ export default {
   },
   methods: {
     async login() {
-      this.token = await AuthResource.login(this.username, this.password)
-      this.$store.state.token = this.token.token
-      localStorage.setItem('username', this.username)
-      localStorage.setItem('token', this.token.token)
+      // this.token = await AuthResource.login(this.username, this.password)
+      //  this.$store.state.token = this.token.token
+      // localStorage.setItem('username', this.username)
+      // localStorage.setItem('token', this.token.token)
       await this.$store.dispatch('FETCH_USER')
       await this.$router.push('/student/courses')
     },

@@ -18,11 +18,11 @@ export default new Vuex.Store({
 
   actions: {
     FETCH_USER: async ({ commit }) => {
-      if (localStorage.getItem('username')) {
-        const username = localStorage.username
+      // if (localStorage.getItem('username')) {
+        const username = "slava34"
         const user = await UserResource.getUser(username);
         commit('SET_USER', user[0]);
-      }
+      // }
     },
 
 

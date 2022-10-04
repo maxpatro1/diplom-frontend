@@ -123,6 +123,7 @@
             </ul>
             Подробное описание лабораторной работы
             <a download href="../../../../assets/document.pdf">тут</a>
+<!--            <a download href="document.pdf" type="pdf">тут!</a>-->
           </span>
         </div>
         <div class="mt-2 row justify-content-center align-items-center">
