@@ -65,6 +65,9 @@
   .width-50 {
     width: 50%
   }
+  .color-pipe {
+      background-color: #BFBFBF;
+  }
   .v1-pipe, .v3-pipe, .v3-pipe-in {
     width: 1.3vw;
     height: 8vh;

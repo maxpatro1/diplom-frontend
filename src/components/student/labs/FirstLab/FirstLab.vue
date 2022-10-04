@@ -13,14 +13,15 @@
       <div class="row">
         <div class="width-80">
           <div class="row g-0">
-        <div class="v1-pipe" :style="{'background-color': isV1PumpOpen}"></div>
+        <div class="v1-pipe color-pipe"></div>
         <div class="flp-pipe pipe-color"></div>
-        <div class="v3-pipe-in" :style="{'background-color': isV3PumpOpen}"></div>
+        <div class="v3-pipe-in color-pipe"></div>
       </div>
           <div class="row g-0">
             <b-button
                 @click="chamberOpen('isV1open')"
                 v-b-tooltip.right="'Первый клапан'"
+                :style="{'background-color': isV1PumpOpen}"
                 class="v1"
             >
               V1
@@ -34,35 +35,39 @@
             <b-button
                 @click="chamberOpen('isV3open')"
                 v-b-tooltip.right="'Третий клапан'"
+                :style="{'background-color': isV3PumpOpen}"
                 class="v3"
             >
               V3
             </b-button>
           </div>
           <div class="row g-0">
-            <div class="v1-pipe" :style="{'background-color': isTMPPumpOpen}"></div>
-            <div class="v3-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
+            <div class="v1-pipe color-pipe"></div>
+            <div class="v3-pipe color-pipe"></div>
           </div>
           <div class="row">
             <b-button
                 @click="chamberOpen('isTMPopen')"
                 v-b-tooltip.right="'Высоковакуумный насос'"
+                :style="{'background-color': isTMPPumpOpen}"
                 class="tmp"
             >
               ТМН
             </b-button>
-            <div class="v2-pipe" :style="{'background-color': isV2PumpOpen}"></div>
+            <div class="v2-pipe color-pipe"></div>
             <b-button
                 @click="chamberOpen('isV2open')"
                 v-b-tooltip.bottom="'Второй клапан'"
+                :style="{'background-color': isV2PumpOpen}"
                 class="v2"
             >
               V2
             </b-button>
-            <div class="v2-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
+            <div class="v2-pipe color-pipe"></div>
             <b-button
                 @click="chamberOpen('isFLPopen')"
                 v-b-tooltip.bottom="'Низковакуумный насос'"
+                :style="{'background-color': isFLPPumpOpen}"
                 class="flp"
             >
               ФВН
@@ -70,7 +75,7 @@
           </div>
           <div class="row g-0">
             <div class="tmp-pipe pipe-color"></div>
-            <div class="out-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
+            <div class="out-pipe color-pipe"></div>
           </div>
           <div class="row">
             <div
@@ -383,11 +388,11 @@ export default {
     startButtonText() {
       return this.chambers.isStarted ? 'Стоп' : 'Старт'
     },
-    isV3PumpOpen() {
-      return this.chambers.isV3open? this.calculateColor : `#BFBFBF`
-    },
     isV1PumpOpen() {
-      return this.chambers.isV1open ? this.calculateColor : `#BFBFBF`
+      return this.chambers.isV1open ? this.calculateColor : `#FFFFFF`
+    },
+    isV3PumpOpen() {
+      return this.chambers.isV3open? this.calculateColor : `#FFFFFF`
     },
     isV1V3open() {
       if (this.chambers.isV1open && this.chambers.isV3open) {
@@ -396,13 +401,13 @@ export default {
       return this.chambers.isV1open && this.chambers.isV3open
     },
     isV2PumpOpen() {
-      return this.chambers.isV2open ? this.calculateColor : `#BFBFBF`
+      return this.chambers.isV2open ? this.calculateColor : `#FFFFFF`
     },
     isFLPPumpOpen() {
-      return this.chambers.isFLPopen ? this.calculateColor : `#BFBFBF`
+      return this.chambers.isFLPopen ? this.calculateColor : `#FFFFFF`
     },
     isTMPPumpOpen() {
-      return this.chambers.isTMPopen ? this.calculateColor : `#BFBFBF`
+      return this.chambers.isTMPopen ? this.calculateColor : `#FFFFFF`
     }
   },
   watch: {
