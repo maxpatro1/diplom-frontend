@@ -6,17 +6,22 @@
         <span class="lab-text">Технологическая установка</span>
       </div>
       <div class="row">
-        <div :style="{'background-color': calculateColor}" class="camera" v-b-tooltip.top="'Камера'"></div>
-        <div class="pipe-color air-pipe"></div>
-        <b-button class="air-button">Воздух</b-button>
+        <div :style="{'background-color': cameraColor }" class="camera" v-b-tooltip.top="'Камера'"></div>
+        <div class="pipe-color air-pipe" :style="{'background-color': isAirPumpOpen}"></div>
+        <b-button
+            @click="chamberOpen('isAirOpen')"
+            class="air-button"
+            v-b-tooltip.top="'Накачка воздуха'"
+        >Воздух
+        </b-button>
       </div>
       <div class="row">
         <div class="width-80">
           <div class="row g-0">
-        <div class="v1-pipe" :style="{'background-color': isV1PumpOpen}"></div>
-        <div class="flp-pipe pipe-color"></div>
-        <div class="v3-pipe-in" :style="{'background-color': isV3PumpOpen}"></div>
-      </div>
+            <div class="v1-pipe" :style="{'background-color': isV1PumpOpen}"></div>
+            <div class="flp-pipe pipe-color"></div>
+            <div class="v3-pipe-in" :style="{'background-color': isV3PumpOpen}"></div>
+          </div>
           <div class="row g-0">
             <b-button
                 @click="chamberOpen('isV1open')"
@@ -95,21 +100,21 @@
                 {{ turnButtonText }}
               </b-button>
             </div>
-              <b-button
-                  v-if="chambers.isTurnOn"
-                  class="w-100 mt-2"
-                  @click="chamberOpen('isStarted')"
-                  :class="startButtonClass">{{ startButtonText }}
-              </b-button>
-        </div>
+            <b-button
+                v-if="chambers.isTurnOn"
+                class="w-100 mt-2"
+                @click="chamberOpen('isStarted')"
+                :class="startButtonClass">{{ startButtonText }}
+            </b-button>
+          </div>
         </div>
       </div>
     </div>
     <div class="width-40 d-flex justify-content-center">
       <div class="task-card mt-3">
         <div class="task-header m-0 d-flex justify-content-center align-items-center">
-        <span class="lab-text">Задание: </span>
-      </div>
+          <span class="lab-text">Задание: </span>
+        </div>
         <div class="mt-2 card-margin">
           <span class="task-text">
             Откачка вакуума:
@@ -188,7 +193,7 @@
           <div class="time-input align-items-center mb-2 mx-3 justify-content-center">
             <label class="m-0 task-text">Ускорение.времени: {{ timeKoef }}</label>
             <b-input-group>
-                <b-form-input
+              <b-form-input
                   v-model="timeKoef"
                   type="range"
                   min="0.5"
@@ -199,7 +204,7 @@
                 <span class="pend d-flex mt-4">100</span>
               </template>
               <template #prepend>
-                 <span class="pend d-flex mt-4">0.5</span>
+                <span class="pend d-flex mt-4">0.5</span>
               </template>
             </b-input-group>
           </div>
@@ -210,12 +215,12 @@
             <label class="parameters-header">Показания приборов:</label>
             <div class="indicators-panel mx-2">
               <div class="row align-items-center">
-                <div class="parameters-letter mt-3 task-text mx-2">P1 </div>
-                <b-form-input  v-model="FLPPressure" class="parameter-input mt-3"></b-form-input>
+                <div class="parameters-letter mt-3 task-text mx-2">P1</div>
+                <b-form-input v-model="FLPPressure" class="parameter-input mt-3"></b-form-input>
                 <div class="parameters-letter m-0 task-text mt-3">Па</div>
               </div>
               <div class="row mt-2 align-items-center">
-                <div class="parameters-letter task-text mx-2">P2 </div>
+                <div class="parameters-letter task-text mx-2">P2</div>
                 <b-form-input v-model="TMPPressure" class="parameter-input"></b-form-input>
                 <div class="parameters-letter task-text align-items-center">Па</div>
               </div>
@@ -230,12 +235,12 @@
       </div>
     </div>
     <b-sidebar title="Лабораторные работы" no-header id="journal" right backdrop shadow>
-        <h5 class="my-3 mx-1">Журнал</h5>
-        <b-list-group>
-          <b-list-group-item class="m-1" :variant="message.class" v-for="message in journal" :key="message.id">
-              {{ message.text }}
-          </b-list-group-item>
-        </b-list-group>
+      <h5 class="my-3 mx-1">Журнал</h5>
+      <b-list-group>
+        <b-list-group-item class="m-1" :variant="message.class" v-for="message in journal" :key="message.id">
+          {{ message.text }}
+        </b-list-group-item>
+      </b-list-group>
     </b-sidebar>
     <div v-if="haveError" class="error">
       <div>Критическая ошибка!</div>
@@ -273,17 +278,19 @@ export default {
       t1: 0,
       t2: 0,
       v: 0.04,
-      FLPPressure: null,
+      FLPPressure: 0,
       TMPPressure: null,
       timeKoef: 1,
       chambers: {
         isTurnOn: null,
+        isAirOpen: null,
         isV1open: null,
         isV2open: null,
         isV3open: null,
         isFLPopen: null,
         isTMPopen: null,
-        isStarted: null
+        isStarted: null,
+        isAirCamera: null,
       },
       haveError: false,
       journal: []
@@ -295,13 +302,24 @@ export default {
     },
     chamberOpen(chamberName) {
       this.chambers[chamberName] = !this.chambers[chamberName]
+      console.log(this.chambers.isAirOpen)
+      if (chamberName === 'isAirOpen') {
+        this.chambers.isAirCamera = true
+      }
       if (chamberName === 'isTurnOn' && this.chambers.isTurnOn) {
         this.chambers.isStarted = true
       } else {
-        if ((chamberName === 'isV1open' && this.chambers['isV3open']) || (chamberName === 'isV3open' && this.chambers['isV1open'])) {
+        if ((chamberName === 'isV1open' && this.chambers['isV3open']) || (chamberName === 'isV3open' && this.chambers['isV1open'])
+            || (chamberName === 'isV1open' && this.chambers['isAirOpen']) || (chamberName === 'isV3open' && this.chambers['isAirOpen'])) {
           this.haveError = true
         }
-        this.chambers[chamberName] ? this.journal.push({text: `${chamberName.split('is')[1].split('open')[0]} клапан был открыт`, class: 'success'}) : this.journal.push({text: `${chamberName.split('is')[1].split('open')[0]} клапан был закрыт`, class: 'success'})
+        this.chambers[chamberName] ? this.journal.push({
+          text: `${chamberName.split('is')[1].split('open')[0]} клапан был открыт`,
+          class: 'success'
+        }) : this.journal.push({
+          text: `${chamberName.split('is')[1].split('open')[0]} клапан был закрыт`,
+          class: 'success'
+        })
       }
 
     },
@@ -313,7 +331,7 @@ export default {
         if (this.FLPPressure === null) {
           this.FLPPressure = this.highPressureMax
         }
-       this.FLPPressure = FirstLabRules.calculatingPressure(this.FLPPressure,
+        this.FLPPressure = FirstLabRules.calculatingPressure(this.FLPPressure,
             t, name, this.S01, this.S02, this.v, this.Qin1,
             this.Qin2, this.d1, this.l1, this.d2, this.l2)
       } else if (name === 'turbomolec') {
@@ -342,25 +360,46 @@ export default {
       }
       const file = await LabResource.getFile({params: {params}})
       console.log(file.config.responseEncoding)
+    },
+    clearingData() {
+      this.journal.push({text: `Критическая ошибка`, class: 'danger'});
+      this.chambers = {
+        isTurnOn: null,
+        isAirOpen: null,
+        isV1open: null,
+        isV2open: null,
+        isV3open: null,
+        isFLPopen: null,
+        isTMPopen: null,
+        isStarted: null,
+        isAirCamera: null,
+      }
+      this.FLPPressure = 0;
+      this.TMPPressure = 0
     }
   },
   computed: {
     getStatus() {
       return this.journal[this.journal.length - 1] ? this.journal[this.journal.length - 1].text : ''
     },
-    calculateColor () {
-      let green = 256 - (this.FLPPressure/(this.highPressureMax))*(256-5);
+    calculateColor() {
+      let green = 256 - (this.FLPPressure / (this.highPressureMax)) * (256 - 5);
       if (!this.FLPPressure) {
         green = 5
       }
-      return `rgb(${green+5}, 176, 36)`
+      if (this.chambers.isAirOpen && !this.FLPPressure) {
+        green = 255
+      }
+      return `rgb(${green + 5}, 176, 36)`
     },
     isForevacuumPump() {
       return this.chambers.isTurnOn
-          && (this.chambers.isV3open && !this.chambers.isV1open)
-          || (this.chambers.isV1open && !this.chambers.isV3open)
+          && this.chambers.isV3open
           && this.chambers.isFLPopen
           && this.chambers.isStarted
+    },
+    isCameraPressure() {
+      return this.chambers.isAirOpen;
     },
     isTurbomolecPump() {
       return this.chambers.isTurnOn
@@ -383,17 +422,34 @@ export default {
     startButtonText() {
       return this.chambers.isStarted ? 'Стоп' : 'Старт'
     },
+    cameraColor() {
+      const defaultColor = `#FFFFFF`
+      if (this.chambers.isAirOpen) {
+        return this.calculateColor
+      }
+      return this.chambers.isAirCamera ? this.calculateColor : defaultColor
+    },
+    isAirPumpOpen() {
+      return this.chambers.isAirOpen ? `#05B024` : `#BFBFBF`
+    },
     isV3PumpOpen() {
-      return this.chambers.isV3open? this.calculateColor : `#BFBFBF`
+      return this.chambers.isV3open ? this.calculateColor : `#BFBFBF`
     },
     isV1PumpOpen() {
       return this.chambers.isV1open ? this.calculateColor : `#BFBFBF`
     },
-    isV1V3open() {
+    isValveErrors() {
+      let error = null
       if (this.chambers.isV1open && this.chambers.isV3open) {
+        error = this.chambers.isV1open && this.chambers.isV3open
+      }
+      if ((this.chambers.isAirOpen && this.chambers.isV1open) || (this.chambers.isAirOpen && this.chambers.isV3open)) {
+        error = (this.chambers.isAirOpen && this.chambers.isV1open) || (this.chambers.isAirOpen && this.chambers.isV3open)
+      }
+      if (error) {
         this.$bvToast.show('critical')
       }
-      return this.chambers.isV1open && this.chambers.isV3open
+      return error
     },
     isV2PumpOpen() {
       return this.chambers.isV2open ? this.calculateColor : `#BFBFBF`
@@ -403,7 +459,7 @@ export default {
     },
     isTMPPumpOpen() {
       return this.chambers.isTMPopen ? this.calculateColor : `#BFBFBF`
-    }
+    },
   },
   watch: {
     isTurbomolecPump() {
@@ -430,29 +486,30 @@ export default {
       }, 1000)
 
     },
-    isV1V3open() {
-      if (this.isV1V3open) {
-      this.journal.push({text: `Критическая ошибка`, class: 'danger'});
-      this.chambers = {
-        isTurnOn: null,
-        isV1open: null,
-        isV2open: null,
-        isV3open: null,
-        isFLPopen: null,
-        isTMPopen: null,
-        isStarted: null
+    isValveErrors() {
+      if(this.isValveErrors) {
+        this.clearingData()
       }
-      this.FLPPressure = 0;
-      this.TMPPressure = 0
-      }
+    },
+    isCameraPressure() {
+      let cameraPressure = setInterval(() => {
+        if (this.chambers.isAirOpen && this.FLPPressure < 10 ** 5) {
+          this.FLPPressure = parseFloat(this.FLPPressure) + 5000 * this.timeKoef
+          if (this.FLPPressure > 10 ** 5) {
+            this.FLPPressure = 100000
+          }
+        } else {
+          clearInterval(cameraPressure)
+        }
+      }, 1000)
     }
   },
   created() {
     this.fetchData()
-  }
+  },
 }
 </script>
 
 <style scoped>
-   @import './FirstLab.css';
+@import './FirstLab.css';
 </style>
