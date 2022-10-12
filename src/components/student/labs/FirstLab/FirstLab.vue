@@ -345,20 +345,20 @@ export default {
     computeTime() {
       this.t = this.t1 + this.t2;
     },
-    async getGraph() {
-      const params = {
-        s01: this.S01,
-        s02: this.S02,
-        v: this.v,
-        Qin1: this.Qin1,
-        Qin2: this.Qin2,
-        d1: this.d1,
-        d2: this.d2,
-        l1: this.l1,
-        l2: this.l2
-      }
-      const file = await LabResource.getFile({params: {params}})
-    },
+    // async getGraph() {
+    //   const params = {
+    //     s01: this.S01,
+    //     s02: this.S02,
+    //     v: this.v,
+    //     Qin1: this.Qin1,
+    //     Qin2: this.Qin2,
+    //     d1: this.d1,
+    //     d2: this.d2,
+    //     l1: this.l1,
+    //     l2: this.l2
+    //   }
+    //   // const file = await LabResource.getFile({params: {params}})
+    // },
     clearingData() {
       this.journal.push({text: `Критическая ошибка`, class: 'danger'});
       this.chambers = {
