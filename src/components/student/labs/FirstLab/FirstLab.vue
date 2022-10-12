@@ -127,7 +127,7 @@
               </li>
             </ul>
             Подробное описание лабораторной работы
-            <a download href="../../../../assets/document.pdf">тут</a>
+            <a target="_blank" href="../../../../assets/document.pdf">тут</a>
           </span>
         </div>
         <div class="mt-2 row justify-content-center align-items-center">
@@ -302,7 +302,6 @@ export default {
     },
     chamberOpen(chamberName) {
       this.chambers[chamberName] = !this.chambers[chamberName]
-      console.log(this.chambers.isAirOpen)
       if (chamberName === 'isAirOpen') {
         this.chambers.isAirCamera = true
       }
@@ -359,7 +358,6 @@ export default {
         l2: this.l2
       }
       const file = await LabResource.getFile({params: {params}})
-      console.log(file.config.responseEncoding)
     },
     clearingData() {
       this.journal.push({text: `Критическая ошибка`, class: 'danger'});
