@@ -21,8 +21,8 @@ export default class FirstLabRules {
     }
 
     /**
-     * Проверка короткая или длинная труба
-     * */
+     * Выбор U в зависимости от длины трубы
+     */
     static choosingUViscous(l, d, Ulong, Ushort, Uhole) {
         let U = 0;
         if (l / d > 100) {
