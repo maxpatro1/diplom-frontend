@@ -10,6 +10,13 @@
         <div class="pipe-color air-pipe" :style="{'background-color': isAirPumpOpen}"></div>
         <b-button
             @click="chamberOpen('isAirOpen')"
+            v-b-tooltip.right="'Подача воздуха'"
+            class="v4"
+        >
+          V4
+        </b-button>
+        <div class="pipe-color air-pipe" :style="{'background-color': `#05B024`}"></div>
+        <b-button
             class="air-button"
             v-b-tooltip.top="'Накачка воздуха'"
         >Воздух
@@ -132,7 +139,7 @@
         </div>
         <div class="mt-2 row justify-content-center align-items-center">
           <div class="tmp-pump-parameters-card m-0">
-            <span class="parameters-header">Параметры насоса ТМН</span>
+            <span class="parameters-header">Параметры насоса ФВН</span>
             <div class="mt-1">
               <div class="row mt-1 align-items-center">
                 <div class="parameters-letter task-text">S</div>
@@ -157,7 +164,7 @@
             </div>
           </div>
           <div class="flp-pump-parameters-card">
-            <span class="parameters-header">Параметры насоса ФВН</span>
+            <span class="parameters-header">Параметры насоса ТМН</span>
             <div class="mt-1">
               <div class="row mt-1 align-items-center">
                 <div class="parameters-letter task-text">S</div>
@@ -244,7 +251,7 @@
     </b-sidebar>
     <div v-if="haveError" class="error">
       <div>Критическая ошибка!</div>
-      <b-button class="error-button" variant="danger" @click="test">Ок</b-button>
+      <b-button class="error-button" variant="danger" @click="test">Начать заново</b-button>
     </div>
   </div>
 </template>
@@ -301,6 +308,7 @@ export default {
       this.haveError = false
     },
     chamberOpen(chamberName) {
+      console.log(this.FLPPressure)
       this.chambers[chamberName] = !this.chambers[chamberName]
       if (chamberName === 'isAirOpen') {
         this.chambers.isAirCamera = true

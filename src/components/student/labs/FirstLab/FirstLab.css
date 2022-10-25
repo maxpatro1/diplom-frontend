@@ -48,12 +48,12 @@
     background: #05B024;
   }
   .air-pipe {
-    width: 4vw;
+    width: 1vw;
     height: 2vh;
     margin-top: 11vh;
   }
-  .air-button {
-    width: 9vw;
+  .air-button, .v4 {
+    width: 6vw;
     margin-top: 8vh;
     height: 8.5vh;
     background: #FFFFFF;
@@ -109,6 +109,9 @@
   .v2 {
     margin-top: 1.5vh;
   }
+ .v4 {
+     margin-top: 8vh;
+ }
   .tmp, .flp{
     width: 8.2vw;
     height: 12vh;
