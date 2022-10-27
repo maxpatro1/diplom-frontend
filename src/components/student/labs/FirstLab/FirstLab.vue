@@ -1,118 +1,124 @@
 <template>
   <div class="row m-0">
     <CustomHeader :labs="labs"></CustomHeader>
+    <div class="width-60 mx-4 margin-header d-flex flex-column">
+        <div class="header-lab-text">Лаб. раб. №1</div>
+        <div class="header-subtitle">Предметы > ТМиЭЭлТ > Лабораторная работа №1</div>
+    </div>
     <div class="width-60">
-      <div class="lab-name d-flex justify-content-center align-items-center mx-4">
-        <span class="lab-text">Технологическая установка</span>
-      </div>
-      <div class="row">
-        <div :style="{'background-color': cameraColor }" class="camera" v-b-tooltip.top="'Камера'"></div>
-        <div class="pipe-color air-pipe" :style="{'background-color': isAirPumpOpen}"></div>
-        <b-button
-            @click="chamberOpen('isAirOpen')"
-            v-b-tooltip.right="'Подача воздуха'"
-            class="v4"
-        >
-          V4
-        </b-button>
-        <div class="pipe-color air-pipe" :style="{'background-color': `#05B024`}"></div>
-        <b-button
-            class="air-button"
-            v-b-tooltip.top="'Накачка воздуха'"
-        >Воздух
-        </b-button>
-      </div>
-      <div class="row">
-        <div class="width-80">
-          <div class="row g-0">
-            <div class="v1-pipe" :style="{'background-color': isV1PumpOpen}"></div>
-            <div class="flp-pipe pipe-color"></div>
-            <div class="v3-pipe-in" :style="{'background-color': isV3PumpOpen}"></div>
-          </div>
-          <div class="row g-0">
-            <b-button
-                @click="chamberOpen('isV1open')"
-                v-b-tooltip.right="'Первый клапан'"
-                class="v1"
-            >
-              V1
-            </b-button>
-            <div
-                v-b-tooltip.bottom="'Монометр для измерения давления в камере'"
-                class="flp-pressure d-flex justify-content-center align-items-center"
-            >
-              P1, Па
-            </div>
-            <b-button
-                @click="chamberOpen('isV3open')"
-                v-b-tooltip.right="'Третий клапан'"
-                class="v3"
-            >
-              V3
-            </b-button>
-          </div>
-          <div class="row g-0">
-            <div class="v1-pipe" :style="{'background-color': isTMPPumpOpen}"></div>
-            <div class="v3-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
-          </div>
-          <div class="row">
-            <b-button
-                @click="chamberOpen('isTMPopen')"
-                v-b-tooltip.right="'Высоковакуумный насос'"
-                class="tmp"
-            >
-              ТМН
-            </b-button>
-            <div class="v2-pipe" :style="{'background-color': isV2PumpOpen}"></div>
-            <b-button
-                @click="chamberOpen('isV2open')"
-                v-b-tooltip.bottom="'Второй клапан'"
-                class="v2"
-            >
-              V2
-            </b-button>
-            <div class="v2-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
-            <b-button
-                @click="chamberOpen('isFLPopen')"
-                v-b-tooltip.bottom="'Низковакуумный насос'"
-                class="flp"
-            >
-              ФВН
-            </b-button>
-          </div>
-          <div class="row g-0">
-            <div class="tmp-pipe pipe-color"></div>
-            <div class="out-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
-          </div>
-          <div class="row">
-            <div
-                v-b-tooltip.righttop="'Монометр для измерения давления низковакуумного насоса'"
-                class="tmp-pressure d-flex justify-content-center align-items-center"
-            >
-              P2, Па
-            </div>
-            <div
-                v-b-tooltip.bottom="'Атмосфера'"
-                class="atm d-flex justify-content-center align-items-center"
-            >
-              Атмосфера
-            </div>
-          </div>
+        <div class="lab-name d-flex m-0 justify-content-center align-items-center mx-4">
+          <span class="lab-text">Технологическая установка</span>
         </div>
-        <div class="width-20 panel-card mx-2">
-          <p class="panel-header mt-3">Панель управления:</p>
-          <div class="mt-2">
-            <div>
-              <b-button class="w-100" @click="chamberOpen('isTurnOn')" :class="turnButtonClass">
-                {{ turnButtonText }}
+      <div class="task-card-left mx-4">
+        <div class="row">
+          <div :style="{'background-color': cameraColor }" class="camera" v-b-tooltip.top="'Камера'"></div>
+          <div class="pipe-color air-pipe" :style="{'background-color': isAirPumpOpen}"></div>
+          <b-button
+              @click="chamberOpen('isAirOpen')"
+              v-b-tooltip.right="'Подача воздуха'"
+              class="v4"
+          >
+            V4
+          </b-button>
+          <div class="pipe-color air-pipe" :style="{'background-color': `#05B024`}"></div>
+          <b-button
+              class="air-button"
+              v-b-tooltip.top="'Накачка воздуха'"
+          >Воздух
+          </b-button>
+        </div>
+        <div class="row">
+          <div class="width-80">
+            <div class="row g-0">
+              <div class="v1-pipe" :style="{'background-color': isV1PumpOpen}"></div>
+              <div class="flp-pipe pipe-color"></div>
+              <div class="v3-pipe-in" :style="{'background-color': isV3PumpOpen}"></div>
+            </div>
+            <div class="row g-0">
+              <b-button
+                  @click="chamberOpen('isV1open')"
+                  v-b-tooltip.right="'Первый клапан'"
+                  class="v1"
+              >
+                V1
+              </b-button>
+              <div
+                  v-b-tooltip.bottom="'Монометр для измерения давления в камере'"
+                  class="flp-pressure d-flex justify-content-center align-items-center"
+              >
+                P1, Па
+              </div>
+              <b-button
+                  @click="chamberOpen('isV3open')"
+                  v-b-tooltip.right="'Третий клапан'"
+                  class="v3"
+              >
+                V3
               </b-button>
             </div>
-            <b-button
-                v-if="chambers.isTurnOn"
-                class="w-100 mt-2"
-                @click="chamberOpen('isStarted')"
-                :class="startButtonClass">{{ startButtonText }}
-            </b-button>
+            <div class="row g-0">
+              <div class="v1-pipe" :style="{'background-color': isTMPPumpOpen}"></div>
+              <div class="v3-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
+            </div>
+            <div class="row">
+              <b-button
+                  @click="chamberOpen('isTMPopen')"
+                  v-b-tooltip.right="'Высоковакуумный насос'"
+                  class="tmp"
+              >
+                ТМН
+              </b-button>
+              <div class="v2-pipe" :style="{'background-color': isV2PumpOpen}"></div>
+              <b-button
+                  @click="chamberOpen('isV2open')"
+                  v-b-tooltip.bottom="'Второй клапан'"
+                  class="v2"
+              >
+                V2
+              </b-button>
+              <div class="v2-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
+              <b-button
+                  @click="chamberOpen('isFLPopen')"
+                  v-b-tooltip.bottom="'Низковакуумный насос'"
+                  class="flp"
+              >
+                ФВН
+              </b-button>
+            </div>
+            <div class="row g-0">
+              <div class="tmp-pipe pipe-color"></div>
+              <div class="out-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
+            </div>
+            <div class="row">
+              <div
+                  v-b-tooltip.righttop="'Монометр для измерения давления низковакуумного насоса'"
+                  class="tmp-pressure d-flex justify-content-center align-items-center"
+              >
+                P2, Па
+              </div>
+              <div
+                  v-b-tooltip.bottom="'Атмосфера'"
+                  class="atm d-flex justify-content-center align-items-center"
+              >
+                Атмосфера
+              </div>
+            </div>
+          </div>
+          <div class="width-20 panel-card mx-2">
+            <p class="panel-header mt-3">Панель управления:</p>
+            <div class="mt-2">
+              <div>
+                <b-button class="w-100" @click="chamberOpen('isTurnOn')" :class="turnButtonClass">
+                  {{ turnButtonText }}
+                </b-button>
+              </div>
+              <b-button
+                  v-if="chambers.isTurnOn"
+                  class="w-100 mt-2"
+                  @click="chamberOpen('isStarted')"
+                  :class="startButtonClass">{{ startButtonText }}
+              </b-button>
+            </div>
           </div>
         </div>
       </div>
@@ -308,7 +314,6 @@ export default {
       this.haveError = false
     },
     chamberOpen(chamberName) {
-      console.log(this.FLPPressure)
       this.chambers[chamberName] = !this.chambers[chamberName]
       if (chamberName === 'isAirOpen') {
         this.chambers.isAirCamera = true
@@ -518,4 +523,5 @@ export default {
 
 <style scoped>
 @import './FirstLab.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 </style>

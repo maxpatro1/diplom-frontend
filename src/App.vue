@@ -17,15 +17,15 @@ export default {
       background-color: #E9EBF8;
   }
   body {
-    background-color: #f5f5f5 !important;
+    background-color: white !important;
   }
 
   html, body {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans', serif;
   }
 
   #app {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', serif;
   }
   .text-title {
     color: #081F32;
