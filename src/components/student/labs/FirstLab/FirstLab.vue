@@ -1,15 +1,21 @@
 <template>
   <div class="row m-0">
     <CustomHeader :labs="labs"></CustomHeader>
-    <div class="width-60 mx-4 margin-header d-flex flex-column">
+    <div class="margin-header d-flex flex-row align-items-end">
+      <div class="width-60 mx-4 d-flex flex-column">
         <div class="header-lab-text">Лаб. раб. №1</div>
         <div class="header-subtitle">Предметы > ТМиЭЭлТ > Лабораторная работа №1</div>
+      </div>
+      <div class="width-40 mx-5 d-flex justify-content-center">
+        <div class="header-task">Исследование вакуумной системы<br> технологической установки по программной модели
+        </div>
+      </div>
     </div>
     <div class="width-60">
-        <div class="lab-name d-flex m-0 justify-content-center align-items-center mx-4">
-          <span class="lab-text">Технологическая установка</span>
-        </div>
-      <div class="task-card-left mx-4">
+      <div class="lab-name d-flex m-0 justify-content-center align-items-center mx-4">
+        <span class="lab-text">Технологическая установка</span>
+      </div>
+      <div class="task-card-left mx-4 px-5 py-4">
         <div class="row">
           <div :style="{'background-color': cameraColor }" class="camera" v-b-tooltip.top="'Камера'"></div>
           <div class="pipe-color air-pipe" :style="{'background-color': isAirPumpOpen}"></div>
@@ -104,145 +110,151 @@
               </div>
             </div>
           </div>
-          <div class="width-20 panel-card mx-2">
+          <div class="width-20 panel-card mx-2 mt-5">
             <p class="panel-header mt-3">Панель управления:</p>
             <div class="mt-2">
-              <div>
-                <b-button class="w-100" @click="chamberOpen('isTurnOn')" :class="turnButtonClass">
+              <div class="d-flex justify-content-center">
+                <b-button class="position-button" @click="chamberOpen('isTurnOn')" :class="turnButtonClass">
                   {{ turnButtonText }}
                 </b-button>
               </div>
-              <b-button
-                  v-if="chambers.isTurnOn"
-                  class="w-100 mt-2"
-                  @click="chamberOpen('isStarted')"
-                  :class="startButtonClass">{{ startButtonText }}
-              </b-button>
+              <div class="d-flex justify-content-center">
+                <b-button
+                    v-if="chambers.isTurnOn"
+                    class="position-button mt-2"
+                    @click="chamberOpen('isStarted')"
+                    :class="startButtonClass">{{ startButtonText }}
+                </b-button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="width-40 d-flex justify-content-center">
-      <div class="task-card mt-3">
+      <div class="d-flex flex-column">
         <div class="task-header m-0 d-flex justify-content-center align-items-center">
           <span class="lab-text">Задание: </span>
         </div>
-        <div class="mt-2 card-margin">
-          <span class="task-text">
-            Откачка вакуума:
-            <ul class="m-0">
-              <li>
-                 Построить кривую откачки с помощью ФВН до 1000 Па
-              </li>
-              <li>
-                 Построить кривую откачки с помощью ТМН от 1000 Па до 10 <sup>-3</sup> Па
-              </li>
-            </ul>
-            Подробное описание лабораторной работы
-            <a target="_blank" href="../../../../assets/document.pdf">тут</a>
-          </span>
-        </div>
-        <div class="mt-2 row justify-content-center align-items-center">
-          <div class="tmp-pump-parameters-card m-0">
-            <span class="parameters-header">Параметры насоса ФВН</span>
-            <div class="mt-1">
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">S</div>
-                <b-form-input v-model="S01" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
+        <div class="task-card">
+          <div class="mt-2 card-margin">
+            <span class="task-text">
+              Откачка вакуума:
+              <ul class="m-0">
+                <li>
+                   Построить кривую откачки с помощью ФВН до 1000 Па
+                </li>
+                <li>
+                   Построить кривую откачки с помощью ТМН от 1000 Па до 10 <sup>-3</sup> Па
+                </li>
+              </ul>
+              Подробное описание лабораторной работы
+              <a target="_blank" href="../../../../assets/document.pdf">тут</a>
+            </span>
+          </div>
+          <div class="mt-3 row justify-content-center align-items-center">
+            <div class="tmp-pump-parameters-card mx-3">
+              <span class="parameters-header">Параметры насоса ФВН</span>
+              <div class="mt-1">
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">S</div>
+                  <b-form-input v-model="S01" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
+                </div>
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">Q</div>
+                  <b-form-input v-model="Qin1" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>*Па/c</div>
+                </div>
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">l</div>
+                  <b-form-input v-model="l1" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м</div>
+                </div>
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">d</div>
+                  <b-form-input v-model="d1" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м</div>
+                </div>
               </div>
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">Q</div>
-                <b-form-input v-model="Qin1" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м<sup>3</sup>*Па/c</div>
-              </div>
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">l</div>
-                <b-form-input v-model="l1" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м</div>
-              </div>
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">d</div>
-                <b-form-input v-model="d1" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м</div>
+            </div>
+            <div class="flp-pump-parameters-card mx-3">
+              <span class="parameters-header">Параметры насоса ТМН</span>
+              <div class="mt-1">
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">S</div>
+                  <b-form-input v-model="S02" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
+                </div>
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">Q</div>
+                  <b-form-input v-model="Qin2" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>*Па/c</div>
+                </div>
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">l</div>
+                  <b-form-input v-model="l2" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м</div>
+                </div>
+                <div class="row mt-1 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text">d</div>
+                  <b-form-input v-model="d2" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">м</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="flp-pump-parameters-card">
-            <span class="parameters-header">Параметры насоса ТМН</span>
-            <div class="mt-1">
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">S</div>
-                <b-form-input v-model="S02" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
-              </div>
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">Q</div>
-                <b-form-input v-model="Qin2" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м<sup>3</sup>*Па/c</div>
-              </div>
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">l</div>
-                <b-form-input v-model="l2" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м</div>
-              </div>
-              <div class="row mt-1 align-items-center">
-                <div class="parameters-letter task-text">d</div>
-                <b-form-input v-model="d2" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">м</div>
+          <hr>
+          <div class="mt-2 card-margin row">
+            <div class="row time-input mb-2 w-50 padding-tool align-items-center">
+              <label class="m-0 task-text">Время откачки</label>
+              <div class="parameters-letter task-text">t</div>
+              <b-form-input :disabled="true" v-model="t" class="parameter-input"></b-form-input>
+              <div class="parameters-letter task-text align-items-center">с</div>
+            </div>
+            <div class="time-input align-items-center mb-2 mx-3 justify-content-center">
+              <label class="m-0 task-text">Ускорение.времени: {{ timeKoef }}</label>
+              <b-input-group>
+                <b-form-input
+                    v-model="timeKoef"
+                    type="range"
+                    min="0.5"
+                    max="100"
+                    step="1">
+                </b-form-input>
+                <template #append>
+                  <span class="pend d-flex mt-4">100</span>
+                </template>
+                <template #prepend>
+                  <span class="pend d-flex mt-4">0.5</span>
+                </template>
+              </b-input-group>
+          </div>
+          </div>
+          <div class="mt-2 card-margin row">
+            <div class="w-50 mt-2">
+              <label class="tool-header">Показания приборов:</label>
+              <div class="indicators-panel">
+                <div class="row align-items-center justify-content-center">
+                  <div class="parameters-letter mt-3 task-text mx-2">P1</div>
+                  <b-form-input v-model="FLPPressure" class="parameter-input mt-3"></b-form-input>
+                  <div class="parameters-letter m-0 task-text mt-3">Па</div>
+                </div>
+                <div class="row mt-2 align-items-center justify-content-center">
+                  <div class="parameters-letter task-text mx-2">P2</div>
+                  <b-form-input v-model="TMPPressure" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">Па</div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <hr>
-        <div class="mt-2 card-margin row">
-          <div class="row time-input mb-2 w-50 align-items-center">
-            <label class="m-0 task-text">Время откачки</label>
-            <div class="parameters-letter task-text">t</div>
-            <b-form-input :disabled="true" v-model="t" class="parameter-input"></b-form-input>
-            <div class="parameters-letter task-text align-items-center">с</div>
-          </div>
-          <div class="time-input align-items-center mb-2 mx-3 justify-content-center">
-            <label class="m-0 task-text">Ускорение.времени: {{ timeKoef }}</label>
-            <b-input-group>
-              <b-form-input
-                  v-model="timeKoef"
-                  type="range"
-                  min="0.5"
-                  max="100"
-                  step="1">
-              </b-form-input>
-              <template #append>
-                <span class="pend d-flex mt-4">100</span>
-              </template>
-              <template #prepend>
-                <span class="pend d-flex mt-4">0.5</span>
-              </template>
-            </b-input-group>
-          </div>
-
-        </div>
-        <div class="mt-2 card-margin row">
-          <div class="w-50">
-            <label class="parameters-header">Показания приборов:</label>
-            <div class="indicators-panel mx-2">
-              <div class="row align-items-center">
-                <div class="parameters-letter mt-3 task-text mx-2">P1</div>
-                <b-form-input v-model="FLPPressure" class="parameter-input mt-3"></b-form-input>
-                <div class="parameters-letter m-0 task-text mt-3">Па</div>
-              </div>
-              <div class="row mt-2 align-items-center">
-                <div class="parameters-letter task-text mx-2">P2</div>
-                <b-form-input v-model="TMPPressure" class="parameter-input"></b-form-input>
-                <div class="parameters-letter task-text align-items-center">Па</div>
+            <div class="time-input">
+              <span class="status-text mt-1">Статус:</span>
+              <b-form-textarea disabled v-model="getStatus" class="text-area" size="sm" ></b-form-textarea>
+              <div class="d-flex flex-row justify-content-end">
+                <b-button v-b-toggle.journal class="journal-button task-text mt-2 mx-2">Журнал</b-button>
+                <b-button class="end-button task-text mt-2">Завершить</b-button>
               </div>
             </div>
-          </div>
-          <div class="time-input">
-            <span class="parameters-header">Статус:</span>
-            <b-form-textarea disabled v-model="getStatus" class="text-area" size="sm"></b-form-textarea>
-            <b-button v-b-toggle.journal class="journal-button task-text mt-2">Посмотреть журнал</b-button>
           </div>
         </div>
       </div>
@@ -425,13 +437,13 @@ export default {
       return this.chambers.isTurnOn ? 'turn-off task-text turn' : 'turn-on task-text turn'
     },
     turnButtonText() {
-      return this.chambers.isTurnOn ? 'Выкл. установку' : 'Вкл. установку'
+      return this.chambers.isTurnOn ? 'Выключить' : 'Включить'
     },
     startButtonClass() {
       return this.chambers.isStarted ? 'turn-off task-text turn' : 'turn-on task-text turn'
     },
     startButtonText() {
-      return this.chambers.isStarted ? 'Стоп' : 'Старт'
+      return this.chambers.isStarted ? 'Пауза' : 'Старт'
     },
     cameraColor() {
       const defaultColor = `#FFFFFF`
@@ -498,7 +510,7 @@ export default {
 
     },
     isValveErrors() {
-      if(this.isValveErrors) {
+      if (this.isValveErrors) {
         this.clearingData()
       }
     },

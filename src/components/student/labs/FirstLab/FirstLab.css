@@ -1,6 +1,6 @@
 textarea {
     resize: none;
-    height: 8.5vh
+    height: 4.5vw
 }
 
 .error {
@@ -19,7 +19,7 @@ textarea {
 }
 
 .width-60 {
-    width: 50%;
+    width: 55%;
 }
 
 .width-40 {
@@ -31,7 +31,7 @@ textarea {
 }
 
 .pend {
-    font-size: 1.5vh;
+    font-size: 1vw;
 }
 
 .width-20 {
@@ -39,18 +39,26 @@ textarea {
 }
 
 .panel-header {
-    font-size: 1.9vh;
+    font-size: 1.2vw;
+    font-weight: 900;
+}
+
+.v1, .v2, .v3, .v4, .air-button, .tmp-pressure, .flp-pressure, .tmp, .flp, .atm {
+    border: 4px solid #BFBFBF;
+    box-sizing: border-box;
+}
+
+.v1, .v2, .v3, .v4, .air-button, .tmp-pressure, .flp-pressure, .tmp, .flp {
+    background: #FFFFFF;
+    color: black;
 }
 
 .camera {
     width: 24vw;
-    height: 14vh;
-    margin-left: 3vw;
-    margin-top: 5vh;
+    height: 7vw;
     /*background: #05B024;*/
+    border: 2px solid #BFBFBF;
     border-radius: 15px;
-    border: 5px solid #BFBFBF;
-    box-sizing: border-box;
 }
 
 .pipe-color {
@@ -62,32 +70,20 @@ textarea {
 }
 
 .air-pipe {
-    width: 2vw;
-    height: 1.4vh;
-    margin-top: 12vh;
+    width: 3vw;
+    height: 0.7vw;
+    margin-top: 3.2vw;
     border-style: solid none solid none;
     border-color: #BFBFBF;
-    border-width: 3px;
+    border-width: 0.15vw;
 }
 
 .air-button {
-    width: 6vw;
-    height: 8vh;
-    margin-top: 8.7vh;
-    background: #FFFFFF;
-    border: 5px solid #BFBFBF;
-    box-sizing: border-box;
-    color: black;
+    margin-top: 1.5vw;
 }
 
 .v4 {
-    width: 3vw;
-    /*margin-top:11.5vh;*/
-    height: 5.7vh;
-    background: #FFFFFF;
-    border: 5px solid #BFBFBF;
-    box-sizing: border-box;
-    color: black;
+    margin-top: 1.8vw;
 }
 
 .width-50 {
@@ -96,141 +92,119 @@ textarea {
 
 .v1-pipe, .v3-pipe, .v3-pipe-in {
     width: 0.6vw;
-    height: 7vh;
-    border-style: none solid none solid;
-    border-color: #BFBFBF;
-    border-width: 3px;
+    height: 3.5vw;
 }
 
-.v1-pipe-lg, .v3-pipe-lg {
-    width: 0.6vw;
-    height: 7vh;
+.v1-pipe, .v3-pipe, .v3-pipe-in, .out-pipe{
     border-style: none solid none solid;
     border-color: #BFBFBF;
-    border-width: 3px;
+    border-width: 0.15vw;
 }
 
 .flp-pipe, .tmp-pipe, .out-pipe {
     width: 0.7vw;
-    height: 7vh;
+    height: 3.5vw;
 }
 
 .v1-pipe {
-    margin-left: 5vw;
+    margin-left: 2.4vw;
 }
 
 .tmp-pipe {
-    margin-left: 4.7vw;
+    margin-left: 2.2vw;
 }
 
 .v3-pipe {
-    margin-left: 17.4vw;
+    margin-left: 16.4vw;
 }
 
 .v3-pipe-in {
-    margin-left: 8.5vw;
+    margin-left: 7.9vw;
 }
 
 .flp-pipe {
-    margin-left: 8.3vw;
+    margin-left: 7.9vw;
 }
 
 .out-pipe {
-    margin-left: 17.5vw;
-    border-style: none solid none solid;
-    border-color: #BFBFBF;
-    border-width: 3px;
+    margin-left: 16.4vw;
 }
 
-.v1, .v3, .v2 {
-    width: 3vw;
-    height: 5.7vh;
-    background: #FFFFFF;
-    border: 5px solid #BFBFBF;
-    color: black;
-    box-sizing: border-box;
+.v1, .v2, .v3, .v4 {
+    width: 3.5vw;
+    height: 3.5vw;
+    font-size: 1vw;
 }
 
+.v1, .v2, .v3, .v4, .flp-pressure, .tmp-pressure{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flp-pressure, .tmp-pressure {
+    width: 4.1vw;
+    height: 4.1vw;
+    border-radius: 50%;
+}
 
 .flp-pressure {
     position: absolute;
-    left: 9vw;
-    width: 4.5vw;
-    /*height: 9.126vh;*/
-    height: 4.5vw;
-    background: #ffffff;
-    border: 5px solid #BFBFBF;
-    color: black;
-    box-sizing: border-box;
-    border-radius: 50%;
-}
-
-.v1 {
-    margin-left: 3.7vw;
-}
-
-.v3 {
-    margin-left: 15vw;
-}
-
-.v2 {
-    margin-top: 1.5vh;
-}
-
-.v4 {
-    margin-top: 9.9vh;
-}
-
-.tmp, .flp {
-    width: 6vw;
-    height: 8vh;
-    background: #FFFFFF;
-    border: 5px solid #BFBFBF;
-    box-sizing: border-box;
-    color: black;
-}
-
-.flp-pressure {
-    margin-left: 5.2vw;
-    /*font-size: 2.2vh;*/
+    left: 14.55vw;
 }
 
 .tmp-pressure {
-    width: 4.5vw;
-    height: 9.126vh;
-    background: #FFFFFF;
-    border: 5px solid #BFBFBF;
-    box-sizing: border-box;
-    border-radius: 50%;
-    color: black;
-    margin-left: 3.5vw;
+    margin-left: 1.15vw;
+}
+
+.v1 {
+    margin-left: 0.9vw;
+}
+
+.v3 {
+    margin-left: 13.6vw;
+}
+
+.v2 {
+    margin-top: 0.4vw;
+}
+
+.air-button,.tmp, .flp {
+    width: 6vw;
+    height: 4vw;
 }
 
 .atm {
     width: 7vw;
-    height: 8vh;
-    /*background: #FFFFFF;*/
-    border: 5px solid #BFBFBF;
-    box-sizing: border-box;
-    /*border-radius: 15px;*/
+    height: 4vw;
     color: black;
-    margin-left: 12.35vw;
+    margin-left: 11.6vw;
 }
 
 .tmp {
-    margin-left: 2.8vw;
+    margin-left: 0.3vw;
 }
 
 .indicators-panel {
-    width: 14vw;
-    height: 15vh;
-    background-color: #6B89CA;
+    width: 15vw;
+    height: 6.3vw;
+}
+
+.tool-header {
+    width: 15vw;
+    font-size: 1.2vw;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
     color: white;
+    background-color: #1E87F0;
+    border-radius: 5px 5px 0 0;
 }
 
 .pressure-input {
-    font-size: 2vh;
-    height: 3.5vh;
+    font-size: 1vw;
+    height: 2vw;
     background: #FFFFFF;
     border: 1px solid #BFBFBF;
     box-sizing: border-box;
@@ -238,18 +212,18 @@ textarea {
 }
 
 .v2-pipe {
-    width: 4.51vw;
-    height: 1.4vh;
+    width: 3.88vw;
+    height: 0.6vw;
     border-style: solid none solid none;
     border-color: #BFBFBF;
-    border-width: 3px;
-    margin-top: 3.4vh;
+    border-width: 0.15vw;
+    margin-top: 1.7vw;
 }
 
 .lab-name {
-    /*margin-top: 3vh;*/
+    /*margin-top: 3vw;*/
     /*width: 48vw;*/
-    height: 6.4vh;
+    height: 3vw;
     background: #1E87F0;
     border-radius: 16px 16px 0px 0px;
 }
@@ -257,16 +231,16 @@ textarea {
 .lab-text {
     color: white;
     font-weight: 400;
-    font-size: 3.4vh;
+    font-size: 1.6vw;
     line-height: 44px;
 }
 
 .task-header {
-    margin-top: 3vh;
-    width: 38vw;
-    height: 6.4vh;
-    background: #6B89CA;
-    border-radius: 11px 11px 0 0;
+    margin-top: 2vw;
+    width: 41.5vw;
+    height: 3vw;
+    background: #1E87F0;
+    border-radius: 16px 16px 0 0;
 }
 
 .width-task-card {
@@ -275,49 +249,82 @@ textarea {
 }
 
 .tmp-pump-parameters-card, .flp-pump-parameters-card {
-    width: 17vw;
-    height: 24vh;
+    width: 18.5vw;
+    height: 11.5vw;
     background: #FFFFFF;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);;
     border-radius: 4px;
-    margin-left: 10px;
+
 }
 
 .parameters-header {
-    font-size: 2.1vh;
+    font-size: 1.3vw;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+}
+
+.status-text{
+    font-size: 1.2vw;
+    font-weight: 600;
+    display: flex;
+    justify-content: start;
 }
 
 .task-text {
-    font-size: 1.7vh;
+    font-size: 1vw;
+    font-weight: 600;
+    padding: 0;
 }
 
 .parameter-input {
-    font-size: 2vh;
-    width: 9vw;
-    height: 3.5vh;
+    font-size: 1vw;
+    font-weight: 400;
+    width: 10vw;
+    height: 1.6vw;
     background: #FFFFFF;
-    border: 1px solid #BFBFBF;
+    border: 1px solid #DEDEDE;
     box-sizing: border-box;
-    border-radius: 4px;
+    border-radius: 3px;
+    margin-top: 0.3vw;
+}
+
+.header-task {
+    font-size: 1.5vw;
+    font-weight: 900;
+    text-align: center;
+    margin-left: 1.7vw;
 }
 
 .parameters-letter {
-    width: 3px;
+    width: 17px;
+    margin: 2px;
 }
 
 .turn {
     width: 16vw;
-    height: 5vh;
+    height: 3vw;
     border-radius: 5px;
     color: white;
 }
 
 .journal-button {
-    width: 15vw;
-    height: 5vh;
+    width: 7vw;
+    height: 2vw;
     background: white;
     border-radius: 5px;
     color: black;
+    border: 1px solid #DEDEDE;
+    box-shadow:0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.end-button{
+    width: 7vw;
+    height: 2vw;
+    color: #FFFFFF;
+    background: #D11919;
+    border-radius: 5px;
+    border: 1px solid #D11919;
 }
 
 .turn-on {
@@ -328,20 +335,33 @@ textarea {
     background: #FF2C2C;
 }
 
-.task-card, .panel-card, .indicators-panel {
+.task-card{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 15px 15px;
+    border-top: none;
+}
+
+.panel-card {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
     border-radius: 11px 11px 4px 4px;
 }
 
+.indicators-panel {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+
 .panel-card {
-    height: 25vh;
-    width: 10vw;
+    position: absolute;
+    left: 33vw;
+    height: 12vw;
+    width: 13.5vw;
     background-color: white;
 }
 
 .task-card {
-    width: 38vw;
-    height: 87vh;
+    width: 41.5vw;
+    height: 36.3vw;
     background-color: white;
 }
 
@@ -354,34 +374,50 @@ textarea {
 }
 
 .mono-text {
-    font-size: 3vh;
+    font-size: 3vw;
 }
 
 .margin-header {
-    margin-top: 23px;
-    margin-bottom: 12px;
+    margin-top: 0.4vw;
+    margin-bottom: 0.6vw;
 }
 
 .header-lab-text {
+    margin-top: 0.4vw;
     font-weight: bold;
-    font-size: 5vh;
+    font-size: 3.5vw;
     line-height: 49px;
     color: #181818;
+    height: 3.5vw
 }
 
 .header-subtitle {
-    margin-top: 10px;
+    margin-top: 0.8vw;
     font-weight: 700;
-    font-size: 2.1vh;
+    font-size: 1.3vw;
     line-height: 20px;
     color: #CDCDCD;
+    height: 1.3vw
 }
 
 .task-card-left {
-
     /*width: 100%;*/
-    /*border-radius: 16px 16px 0px 0px;*/
+    border-radius: 0 0 15px 15px;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-top: none;
+    height: 36.3vw;
+}
+
+.position-button{
+    width: 80% !important;
+    border: none;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+
+.padding-tool {
+    padding-left: 1.5rem;
 }

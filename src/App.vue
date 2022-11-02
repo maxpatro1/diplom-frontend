@@ -14,7 +14,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap');
 
   .header-color {
-      background-color: #E9EBF8;
+      background-color: #1E87F0;
   }
   body {
     background-color: white !important;
@@ -22,10 +22,12 @@ export default {
 
   html, body {
       font-family: 'Open Sans', serif;
+      font-size: 1vw;
   }
 
   #app {
     font-family: 'Open Sans', serif;
+    font-size: 1vw;
   }
   .text-title {
     color: #081F32;
