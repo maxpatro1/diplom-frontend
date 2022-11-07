@@ -1,16 +1,20 @@
 <template>
   <header class="header-color header-height">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between align-items-baseline">
         <div class="align-content-center">
           <b-navbar-brand class="mx-3">
             <b-icon-list v-if="labs" class="icon-size mx-2" v-b-toggle.sidebar-backdrop></b-icon-list>
             <router-link class="router-link ml-3" to="/student/courses">
-              <span class="header-text">ЛЭТИ</span><span class="header-text-lab">Л@Б</span>
+              <span class="header-text">LETI</span><span class="header-text-lab">&nbsp; web lab</span>
             </router-link>
+
 <!--            <span v-if="getLabName">/ l a b {{ $route.path.split('/')[5] }}</span>-->
           </b-navbar-brand>
         </div>
         <div class="mx-3">
+          <div>
+            <b-icon icon="person" class="mx-2" style="color: white;"></b-icon><span class="position-surname">Студент: Чирков В.И.</span>
+          </div>
           <div class="d-flex justify-content-center">{{$store.getters.user.last_name}} {{$store.getters.user.first_name}}</div>
           <p class="text-muted"><small>{{$store.getters.user.email}}</small></p>
         </div>
@@ -48,16 +52,25 @@ export default {
   }
   .icon-size {
     width: 20px;
+    color: white;
   }
   .header-text {
-    font-family: 'Courier New',   monospace;
+    font-family: 'Montserrat',   sans-serif;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 900;
+    color: white;
   }
   .header-text-lab {
     font-size: 13px;
-    font-family: 'Courier New',   monospace;
-    font-weight: 100;
+    font-family: 'Montserrat',   sans-serif;
+    font-weight: 900;
+    color: white;
+  }
+  .position-surname{
+    font-size: 17px;
+    font-family: 'Montserrat',   sans-serif;
+    font-weight: 600;
+    color: white;
   }
   a {
     color: black;
