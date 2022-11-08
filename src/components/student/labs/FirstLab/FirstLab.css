@@ -3,6 +3,21 @@ textarea {
     height: 4.5vw
 }
 
+.time-range {
+    position: relative;
+    top: -5px;
+}
+
+.time-input-margin {
+    margin-left: 2.2vw;
+}
+
+.panel-margin{
+    margin: 0.5vw 0;
+}
+.margin-input {
+    margin-left: 2.3vw;
+}
 .error {
     position: absolute;
     width: 200px;
@@ -31,7 +46,7 @@ textarea {
 }
 
 .pend {
-    font-size: 1vw;
+    font-size: 0.73vw;
 }
 
 .width-20 {
@@ -39,8 +54,11 @@ textarea {
 }
 
 .panel-header {
-    font-size: 1.2vw;
-    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+    font-weight: 500;
 }
 
 .v1, .v2, .v3, .v4, .air-button, .tmp-pressure, .flp-pressure, .tmp, .flp, .atm {
@@ -191,9 +209,17 @@ textarea {
     height: 6.3vw;
 }
 
+.status-input {
+    width: 17.5vw;
+    margin-right: 1vw;
+}
+.status-text-input {
+    height: 6.5vw !important;
+}
+
 .tool-header {
     width: 15vw;
-    font-size: 1.2vw;
+    font-size: 0.85vw;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -223,22 +249,22 @@ textarea {
 .lab-name {
     /*margin-top: 3vw;*/
     /*width: 48vw;*/
-    height: 3vw;
+    height: 2.3vw;
     background: #1E87F0;
     border-radius: 16px 16px 0px 0px;
 }
 
 .lab-text {
     color: white;
-    font-weight: 400;
-    font-size: 1.6vw;
-    line-height: 44px;
+    font-weight: 500;
+    font-size: 1vw;
+    line-height: 24px;
 }
 
 .task-header {
     margin-top: 2vw;
     width: 41.5vw;
-    height: 3vw;
+    height: 2.3vw;
     background: #1E87F0;
     border-radius: 16px 16px 0 0;
 }
@@ -249,8 +275,8 @@ textarea {
 }
 
 .tmp-pump-parameters-card, .flp-pump-parameters-card {
-    width: 18.5vw;
-    height: 11.5vw;
+    width: 17.5vw;
+    height: 10.5vw;
     background: #FFFFFF;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);;
     border-radius: 4px;
@@ -258,35 +284,36 @@ textarea {
 }
 
 .parameters-header {
-    font-size: 1.3vw;
-    font-weight: 300;
+    font-size: 0.9vw;
+    font-weight: 400;
     display: flex;
+    margin-top: 5px;
     justify-content: center;
 }
 
 .status-text{
-    font-size: 1.2vw;
-    font-weight: 600;
+    font-size: 0.85vw;
+    font-weight: 500;
     display: flex;
     justify-content: start;
 }
 
 .task-text {
-    font-size: 1vw;
-    font-weight: 600;
+    font-size: 0.85vw;
+    font-weight: 400;
     padding: 0;
 }
 
 .parameter-input {
-    font-size: 1vw;
+    font-size: 0.8vw;
     font-weight: 400;
-    width: 10vw;
-    height: 1.6vw;
+    width: 8.6vw;
+    height: 1.4vw;
     background: #FFFFFF;
     border: 1px solid #DEDEDE;
     box-sizing: border-box;
-    border-radius: 3px;
-    margin-top: 0.3vw;
+    border-radius: 2px;
+    /*margin-top: 0.3vw;*/
 }
 
 .header-task {
@@ -297,7 +324,7 @@ textarea {
 }
 
 .parameters-letter {
-    width: 17px;
+    width: 8px;
     margin: 2px;
 }
 
@@ -309,7 +336,7 @@ textarea {
 }
 
 .journal-button {
-    width: 7vw;
+    width: 8.5vw;
     height: 2vw;
     background: white;
     border-radius: 5px;
@@ -319,7 +346,7 @@ textarea {
 }
 
 .end-button{
-    width: 7vw;
+    width: 8.5vw;
     height: 2vw;
     color: #FFFFFF;
     background: #D11919;
@@ -328,7 +355,7 @@ textarea {
 }
 
 .turn-on {
-    background: #34a853;
+    background: #54C940;
 }
 
 .turn-off {
@@ -354,7 +381,7 @@ textarea {
 .panel-card {
     position: absolute;
     left: 33vw;
-    height: 12vw;
+    height: 10.1vw;
     width: 13.5vw;
     background-color: white;
 }
@@ -384,17 +411,19 @@ textarea {
 
 .header-lab-text {
     margin-top: 0.4vw;
-    font-weight: bold;
-    font-size: 3.5vw;
-    line-height: 49px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.9vw;
+    line-height: 44px;
+    letter-spacing: -0.005em;
     color: #181818;
-    height: 3.5vw
+    height: 2.3vw
 }
 
 .header-subtitle {
-    margin-top: 0.8vw;
-    font-weight: 700;
-    font-size: 1.3vw;
+    margin-top: 0.4vw;
+    font-weight: 500;
+    font-size: 0.8vw;
     line-height: 20px;
     color: #CDCDCD;
     height: 1.3vw
@@ -410,8 +439,11 @@ textarea {
 }
 
 .position-button{
-    width: 80% !important;
+    width: 65% !important;
+    height: 2.2vw !important;
     border: none;
+    font-size: 0.9vw;
+    font-weight: 500;
 }
 
 .form-control:disabled, .form-control[readonly] {

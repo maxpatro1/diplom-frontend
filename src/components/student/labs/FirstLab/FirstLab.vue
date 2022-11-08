@@ -3,13 +3,13 @@
     <CustomHeader :labs="labs"></CustomHeader>
     <div class="margin-header d-flex flex-row align-items-end">
       <div class="width-60 mx-4 d-flex flex-column">
-        <div class="header-lab-text">Лаб. раб. №1</div>
+        <div class="header-lab-text">Исследование вакуумной системы</div>
         <div class="header-subtitle">Предметы > ТМиЭЭлТ > Лабораторная работа №1</div>
       </div>
-      <div class="width-40 mx-5 d-flex justify-content-center">
-        <div class="header-task">Исследование вакуумной системы<br> технологической установки по программной модели
-        </div>
-      </div>
+<!--      <div class="width-40 mx-5 d-flex justify-content-center">-->
+<!--        <div class="header-task">Исследование вакуумной системы<br> технологической установки по программной модели-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
     <div class="width-60">
       <div class="lab-name d-flex m-0 justify-content-center align-items-center mx-4">
@@ -24,7 +24,7 @@
               v-b-tooltip.right="'Подача воздуха'"
               class="v4"
           >
-            V4
+            К4
           </b-button>
           <div class="pipe-color air-pipe" :style="{'background-color': `#05B024`}"></div>
           <b-button
@@ -46,7 +46,7 @@
                   v-b-tooltip.right="'Первый клапан'"
                   class="v1"
               >
-                V1
+                К1
               </b-button>
               <div
                   v-b-tooltip.bottom="'Монометр для измерения давления в камере'"
@@ -59,7 +59,7 @@
                   v-b-tooltip.right="'Третий клапан'"
                   class="v3"
               >
-                V3
+                К3
               </b-button>
             </div>
             <div class="row g-0">
@@ -80,7 +80,7 @@
                   v-b-tooltip.bottom="'Второй клапан'"
                   class="v2"
               >
-                V2
+                К2
               </b-button>
               <div class="v2-pipe" :style="{'background-color': isFLPPumpOpen}"></div>
               <b-button
@@ -111,7 +111,7 @@
             </div>
           </div>
           <div class="width-20 panel-card mx-2 mt-5">
-            <p class="panel-header mt-3">Панель управления:</p>
+            <p class="panel-header mt-3">Панель управления</p>
             <div class="mt-2">
               <div class="d-flex justify-content-center">
                 <b-button class="position-button" @click="chamberOpen('isTurnOn')" :class="turnButtonClass">
@@ -134,7 +134,7 @@
     <div class="width-40 d-flex justify-content-center">
       <div class="d-flex flex-column">
         <div class="task-header m-0 d-flex justify-content-center align-items-center">
-          <span class="lab-text">Задание: </span>
+          <span class="lab-text">Задание </span>
         </div>
         <div class="task-card">
           <div class="mt-2 card-margin">
@@ -152,26 +152,26 @@
               <a target="_blank" href="../../../../assets/document.pdf">тут</a>
             </span>
           </div>
-          <div class="mt-3 row justify-content-center align-items-center">
+          <div class="mt-3 row justify-content-between align-items-center panel-margin">
             <div class="tmp-pump-parameters-card mx-3">
               <span class="parameters-header">Параметры насоса ФВН</span>
               <div class="mt-1">
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">S</div>
                   <b-form-input v-model="S01" class="parameter-input"></b-form-input>
                   <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
                 </div>
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">Q</div>
                   <b-form-input v-model="Qin1" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>*Па/c</div>
+                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>&#183;Па/c</div>
                 </div>
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">l</div>
                   <b-form-input v-model="l1" class="parameter-input"></b-form-input>
                   <div class="parameters-letter task-text align-items-center">м</div>
                 </div>
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">d</div>
                   <b-form-input v-model="d1" class="parameter-input"></b-form-input>
                   <div class="parameters-letter task-text align-items-center">м</div>
@@ -181,22 +181,22 @@
             <div class="flp-pump-parameters-card mx-3">
               <span class="parameters-header">Параметры насоса ТМН</span>
               <div class="mt-1">
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">S</div>
                   <b-form-input v-model="S02" class="parameter-input"></b-form-input>
                   <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
                 </div>
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">Q</div>
                   <b-form-input v-model="Qin2" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>*Па/c</div>
+                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>&#183;Па/c</div>
                 </div>
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">l</div>
                   <b-form-input v-model="l2" class="parameter-input"></b-form-input>
                   <div class="parameters-letter task-text align-items-center">м</div>
                 </div>
-                <div class="row mt-1 align-items-center justify-content-center">
+                <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">d</div>
                   <b-form-input v-model="d2" class="parameter-input"></b-form-input>
                   <div class="parameters-letter task-text align-items-center">м</div>
@@ -205,34 +205,32 @@
             </div>
           </div>
           <hr>
-          <div class="mt-2 card-margin row">
-            <div class="row time-input mb-2 w-50 padding-tool align-items-center">
-              <label class="m-0 task-text">Время откачки</label>
-              <div class="parameters-letter task-text">t</div>
-              <b-form-input :disabled="true" v-model="t" class="parameter-input"></b-form-input>
-              <div class="parameters-letter task-text align-items-center">с</div>
+          <div class="mt-2 row p-0">
+            <div class="time-input mb-2 w-50 padding-tool align-items-center">
+              <span class="m-0 task-text">Время откачки</span>
+              <div class="row align-items-center m-0">
+                  <div class="parameters-letter task-text">t</div>
+                  <b-form-input :disabled="true" v-model="t" class="parameter-input"></b-form-input>
+                  <div class="parameters-letter task-text align-items-center">с</div>
+              </div>
             </div>
-            <div class="time-input align-items-center mb-2 mx-3 justify-content-center">
+            <div class="time-input align-items-center mb-2 p-0 justify-content-center time-input-margin">
               <label class="m-0 task-text">Ускорение.времени: {{ timeKoef }}</label>
-              <b-input-group>
-                <b-form-input
-                    v-model="timeKoef"
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="pend mx-1">0.5</div>
+                <input
                     type="range"
+                    v-model="timeKoef"
+                    class="form-range m-0"
                     min="0.5"
                     max="100"
                     step="1">
-                </b-form-input>
-                <template #append>
-                  <span class="pend d-flex mt-4">100</span>
-                </template>
-                <template #prepend>
-                  <span class="pend d-flex mt-4">0.5</span>
-                </template>
-              </b-input-group>
+                <div class="pend mx-1">100</div>
+              </div>
           </div>
           </div>
-          <div class="mt-2 card-margin row">
-            <div class="w-50 mt-2">
+          <div class="mt-2 card-margin d-flex justify-content-between">
+            <div class="mt-2">
               <label class="tool-header">Показания приборов:</label>
               <div class="indicators-panel">
                 <div class="row align-items-center justify-content-center">
@@ -247,12 +245,12 @@
                 </div>
               </div>
             </div>
-            <div class="time-input">
+            <div class="status-input">
               <span class="status-text mt-1">Статус:</span>
-              <b-form-textarea disabled v-model="getStatus" class="text-area" size="sm" ></b-form-textarea>
-              <div class="d-flex flex-row justify-content-end">
-                <b-button v-b-toggle.journal class="journal-button task-text mt-2 mx-2">Журнал</b-button>
-                <b-button class="end-button task-text mt-2">Завершить</b-button>
+              <b-form-textarea disabled v-model="getStatus" class="text-area status-text-input" size="sm"></b-form-textarea>
+              <div class="d-flex justify-content-between">
+                <b-button v-b-toggle.journal class="journal-button task-text mt-2 col-5">Журнал</b-button>
+                <b-button class="end-button task-text mt-2 col-5">Завершить</b-button>
               </div>
             </div>
           </div>
@@ -326,6 +324,7 @@ export default {
       this.haveError = false
     },
     chamberOpen(chamberName) {
+      console.log(window.innerWidth)
       this.chambers[chamberName] = !this.chambers[chamberName]
       if (chamberName === 'isAirOpen') {
         this.chambers.isAirCamera = true
