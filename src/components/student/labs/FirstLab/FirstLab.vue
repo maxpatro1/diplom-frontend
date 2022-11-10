@@ -159,22 +159,22 @@
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">S</div>
                   <b-form-input v-model="S01" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
+                  <div class="parameters-units task-text align-items-center">м<sup>3</sup>/c</div>
                 </div>
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">Q</div>
                   <b-form-input v-model="Qin1" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>&#183;Па/c</div>
+                  <div class="parameters-units task-text align-items-center">м<sup>3</sup>&#183;Па/c</div>
                 </div>
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">l</div>
                   <b-form-input v-model="l1" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м</div>
+                  <div class="parameters-units task-text align-items-center">м</div>
                 </div>
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">d</div>
                   <b-form-input v-model="d1" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м</div>
+                  <div class="parameters-units task-text align-items-center">м</div>
                 </div>
               </div>
             </div>
@@ -184,22 +184,22 @@
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">S</div>
                   <b-form-input v-model="S02" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>/c</div>
+                  <div class="parameters-units task-text align-items-center">м<sup>3</sup>/c</div>
                 </div>
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">Q</div>
                   <b-form-input v-model="Qin2" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м<sup>3</sup>&#183;Па/c</div>
+                  <div class="parameters-units task-text align-items-center">м<sup>3</sup>&#183;Па/c</div>
                 </div>
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">l</div>
                   <b-form-input v-model="l2" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м</div>
+                  <div class="parameters-units task-text align-items-center">м</div>
                 </div>
                 <div class="row mt-1 align-items-center justify-content-start margin-input">
                   <div class="parameters-letter task-text">d</div>
                   <b-form-input v-model="d2" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">м</div>
+                  <div class="parameters-units task-text align-items-center">м</div>
                 </div>
               </div>
             </div>
@@ -215,7 +215,7 @@
               </div>
             </div>
             <div class="time-input align-items-center mb-2 p-0 justify-content-center time-input-margin">
-              <label class="m-0 task-text">Ускорение.времени: {{ timeKoef }}</label>
+              <label class="m-0 task-text">Ускорение времени: {{ timeKoef }}</label>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="pend mx-1">0.5</div>
                 <input
@@ -236,12 +236,12 @@
                 <div class="row align-items-center justify-content-center">
                   <div class="parameters-letter mt-3 task-text mx-2">P1</div>
                   <b-form-input v-model="FLPPressure" class="parameter-input mt-3"></b-form-input>
-                  <div class="parameters-letter m-0 task-text mt-3">Па</div>
+                  <div class="parameters-units task-text mt-3">Па</div>
                 </div>
                 <div class="row mt-2 align-items-center justify-content-center">
                   <div class="parameters-letter task-text mx-2">P2</div>
                   <b-form-input v-model="TMPPressure" class="parameter-input"></b-form-input>
-                  <div class="parameters-letter task-text align-items-center">Па</div>
+                  <div class="parameters-units task-text align-items-center">Па</div>
                 </div>
               </div>
             </div>
@@ -294,12 +294,14 @@ export default {
       l2: 0.3,
       Qin2: 0.0001,
       highPressureMax: 100000,
+      highPressureBothPumps: 1000,
       lowPressureMax: 1000,
       lowPressure: 1000,
       highPressure: 10000,
       t: 0,
       t1: 0,
       t2: 0,
+      t3: 0,
       v: 0.04,
       FLPPressure: 0,
       TMPPressure: null,
@@ -324,7 +326,6 @@ export default {
       this.haveError = false
     },
     chamberOpen(chamberName) {
-      console.log(window.innerWidth)
       this.chambers[chamberName] = !this.chambers[chamberName]
       if (chamberName === 'isAirOpen') {
         this.chambers.isAirCamera = true
@@ -349,25 +350,37 @@ export default {
     async fetchData() {
       this.labs = await LabResource.getLabByCourseId({id: 2})
     },
-    pupm(name, t) {
+    pupm(name, t, type) {
+      console.log('1:', this.FLPPressure)
       if (name === 'forevacuum') {
         if (this.FLPPressure === null) {
           this.FLPPressure = this.highPressureMax
         }
         this.FLPPressure = FirstLabRules.calculatingPressure(this.FLPPressure,
             t, name, this.S01, this.S02, this.v, this.Qin1,
-            this.Qin2, this.d1, this.l1, this.d2, this.l2)
+            this.Qin2, this.d1, this.l1, this.d2, this.l2, this.highPressureMax)
       } else if (name === 'turbomolec') {
         if (this.TMPPressure === null) {
           this.TMPPressure = this.FLPPressure
         }
-        this.TMPPressure = FirstLabRules.calculatingPressure(this.TMPPressure,
+        if (type === 'both' ) {
+          console.log('2:', this.FLPPressure);
+          if (t === 0) {
+            this.highPressureBothPumps = this.FLPPressure
+          }
+          this.FLPPressure = FirstLabRules.calculatingPressure(this.FLPPressure,
             t, name, this.S01, this.S02, this.v, this.Qin1,
-            this.Qin2, this.d1, this.l1, this.d2, this.l2)
+            this.Qin2, this.d1, this.l1, this.d2, this.l2, this.highPressureBothPumps)
+          console.log('3:', this.FLPPressure);
+        } else {
+         this.TMPPressure = FirstLabRules.calculatingPressure(this.TMPPressure,
+            t, name, this.S01, this.S02, this.v, this.Qin1,
+            this.Qin2, this.d1, this.l1, this.d2, this.l2, this.highPressureMax)
+        }
       }
     },
     computeTime() {
-      this.t = this.t1 + this.t2;
+      this.t = this.t1 + this.t2 + this.t3;
     },
     // async getGraph() {
     //   const params = {
@@ -427,10 +440,20 @@ export default {
       return this.chambers.isTurnOn
           && this.chambers.isFLPopen
           && this.chambers.isV2open
-          // && this.chambers.isV1open
+          && !this.chambers.isV1open
           && this.chambers.isTMPopen
           && this.chambers.isStarted
           && this.FLPPressure != null
+    },
+    isBothPumpsPump() {
+      return this.chambers.isTurnOn
+                && this.chambers.isFLPopen
+                && this.chambers.isV2open
+                && this.chambers.isV1open
+                // && this.chambers.isV1open
+                && this.chambers.isTMPopen
+                && this.chambers.isStarted
+                && this.FLPPressure != null
     },
     turnButtonClass() {
       return this.chambers.isTurnOn ? 'turn-off task-text turn' : 'turn-on task-text turn'
@@ -490,6 +513,18 @@ export default {
           this.t2 = this.t2 + parseFloat(this.timeKoef)
           this.computeTime()
           this.pupm('turbomolec', this.t2)
+        } else {
+          clearInterval(turbomolec)
+        }
+      }, 1000)
+
+    },
+    isBothPumpsPump() {
+      let turbomolec = setInterval(() => {
+        if (this.isBothPumpsPump) {
+          this.t3 = this.t3 + parseFloat(this.timeKoef)
+          this.computeTime()
+          this.pupm('turbomolec', this.t3, 'both')
         } else {
           clearInterval(turbomolec)
         }

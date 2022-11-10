@@ -322,10 +322,18 @@ textarea {
     text-align: center;
     margin-left: 1.7vw;
 }
+.parameters-units {
+    text-align: start;
+    width: 3vw;
+    margin-left: 2px;
+    margin-top: 2px;
+}
 
 .parameters-letter {
-    width: 8px;
-    margin: 2px;
+    text-align: center;
+    width: 1vw;
+    margin-right: 2px;
+    margin-top: 2px;
 }
 
 .turn {

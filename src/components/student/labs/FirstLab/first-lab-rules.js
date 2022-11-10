@@ -55,22 +55,22 @@ export default class FirstLabRules {
     /**
      * Расчет давления в зависимости от насоса
      */
-    static calculatingPressure(Pcurr, t, name, S01, S02, V, Qin1, Qin2, d1, l1, d2, l2) {
+    static calculatingPressure(Pcurr, t, name, S01, S02, V, Qin1, Qin2, d1, l1, d2, l2, Pmax) {
             if (name === 'forevacuum') {
-                return this.calculatingCurrentP(d1, l1, Pcurr, S01, Qin1, V, t).toFixed(3)
+                return this.calculatingCurrentP(d1, l1, Pcurr, S01, Qin1, V, t, Pmax).toFixed(3)
             } else if (name === 'turbomolec') {
-                return this.calculatingCurrentP(d2, l2, Pcurr, S02, Qin2, V, t).toFixed(3)
+                return this.calculatingCurrentP(d2, l2, Pcurr, S02, Qin2, V, t, Pmax).toFixed(3)
             }
     }
 
     /**
      * Расчет текущего давления
      */
-    static calculatingCurrentP(d, l, Pcurr, S, Qin, V, t) {
+    static calculatingCurrentP(d, l, Pcurr, S, Qin, V, t, Pmax) {
         const Ucurr = this.calculationUTotal(d, l, 0, Pcurr)
         const Seff = (S * Ucurr) / (S + Ucurr)
         const Pmin = Qin / Seff
-        Pcurr = Pmin + (100000 - Pmin) * Math.exp(-0.07 * (Seff / V) * t)
+        Pcurr = Pmin + (Pmax - Pmin) * Math.exp(-0.07 * (Seff / V) * t)
         return Pcurr
     }
 
