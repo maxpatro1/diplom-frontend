@@ -6,12 +6,13 @@
 
 <script>
 import EmptyLayout from '@/layouts/EmptyLayout.vue';
+import AuthLayout from '@/layouts/AuthLayout.vue';
 
 export default {
   name: 'App',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
     EmptyLayout,
+    AuthLayout,
   },
   computed: {
     layout() {

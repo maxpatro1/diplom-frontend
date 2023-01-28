@@ -9,6 +9,9 @@ const routes = [
     path: '/',
     name: 'auth',
     component: AuthView,
+    meta: {
+      layout: 'auth-layout',
+    },
   },
   {
     path: '/courses',
