@@ -10,16 +10,21 @@ const routes = [
     name: 'auth',
     component: AuthView,
     meta: {
+    //   title: 'Авторизация',
       layout: 'auth-layout',
+    //   requiresAuth: false,
     },
   },
   {
     path: '/courses',
     name: 'courses',
     component: CoursesView,
+    meta: {
+      layout: 'courses-layout',
+    }
   },
   {
-    path: '/courses/:courseId',
+    path: '/courses/:courseId', // unused page
     name: 'course',
     component: CourseView,
   },
