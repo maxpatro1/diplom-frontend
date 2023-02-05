@@ -13,7 +13,7 @@ export default {
 <style lang="scss" scoped>
 .base-button {
   padding: 8px 24px;
-  color: $light;
+  color: #fff;
   background: $blue-primary;
   border-radius: $radius-sm;
 }
