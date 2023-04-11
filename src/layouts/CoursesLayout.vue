@@ -60,9 +60,10 @@ export default {
   height: 90px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 20px;
   background: $blue-primary;
   color: #fff;
+  white-space: nowrap;
 
   .wrapper {
     display: flex;
@@ -78,7 +79,6 @@ export default {
     align-items: end;
     gap: 4px;
     margin-right: 10%;
-    white-space: nowrap;
 
     &__title {
       font-size: 40px;
