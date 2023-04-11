@@ -1,9 +1,9 @@
 <template>
   <label :class="classes">
-    <span v-if="label" class="base-input__label">{{ label }}</span>
     <input
       :value="modelValue"
       :type="type"
+      :placeholder="placeholder"
       class="base-input__input"
       @input="$emit('update:modelValue', $event.target.value)"
     />
@@ -18,13 +18,9 @@ export default {
       type: String,
       default: ''
     },
-    label: {
+    placeholder: {
       type: String,
       default: ''
-    },
-    isGrayLabel: {
-      type: Boolean,
-      default: false
     },
     type: {
       type: String,
@@ -35,9 +31,6 @@ export default {
     classes() {
       return [
         'base-input',
-        {
-          'gray-label': this.isGrayLabel,
-        }
       ];
     }
   }
@@ -47,21 +40,33 @@ export default {
 <style lang="scss" scoped>
 .base-input {
   width: 100%;
+  display: flex;
+  transition: $transition-md;
 
-  &.gray-label {
-    color: $grey-primary;
-  }
-
-  &__label {
-    display: block;
-    margin-bottom: 8px;
+  &:hover {
+    .base-input__input {
+      background-color: $honey-dew;
+    }
   }
 
   &__input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid $blue-primary;
-    border-radius: $radius-sm;
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    border: 1px solid $traffic-gray;
+    border-radius: 16px;
+    transition: $transition-md;
+
+    &::placeholder {
+      color: $traffic-gray;
+      font-weight: 400;
+    }
+
+    &:focus {
+      border: 1px solid $dark-blue;
+    }
   }
 }
 </style>
