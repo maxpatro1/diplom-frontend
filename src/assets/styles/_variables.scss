@@ -1,11 +1,10 @@
-$dark: #000000;
-$light-blue-primary: #E9EBF8;
-$grey-primary: #8A92A6;
-
-$blue-primary: #1E87F0;
-
-$radius-xs: 2px;
-$radius-sm: 4px;
+$white: #fff;
+$black: #000;
+$black-brown: #222222;
+$traffic-gray: #8C8C8C;
+$honey-dew: #EFEFEF;
+$dark-blue: #3F88BC;
+$signal-red: #D31919;
 
 $screen-xs: 0;
 $screen-sm: 576px;
@@ -13,5 +12,12 @@ $screen-md: 768px;
 $screen-lg: 992px;
 $screen-xl: 1200px;
 $screen-xxl: 1400px;
+
+$transition-xs: .0.5s;
+$transition-sm: .1s;
+$transition-md: .15s;
+$transition-lg: .2s;
+$transition-xl: .25s;
+$transition-xxl: .3s;
 
 $max-page-width: 1316px;
