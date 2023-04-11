@@ -1,9 +1,7 @@
 <template>
   <main class="auth-layout">
-    <section class="auth-layout__content">
-      <slot></slot>
-    </section>
-    <div class="auth-layout__poster">
+    <div class="auth-layout__body">
+      <slot />
     </div>
   </main>
 </template>
@@ -17,18 +15,15 @@ export default {
 <style lang="scss" scoped>
 .auth-layout {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  @media (max-width: $screen-lg) {
-    grid-template-columns: auto;
-  }
+  display: flex;
+  background-image: url('@/assets/images/auth-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 
-  &__poster {
-    background: url('@/assets/images/auth-background.png') center no-repeat;
-    background-size: cover;
-    @media (max-width: $screen-lg) {
-      display: none;
-    }
+  &__body {
+    flex-grow: 1;
   }
 }
 </style>
