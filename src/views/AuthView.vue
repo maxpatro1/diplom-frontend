@@ -18,6 +18,8 @@ export default {
 <style>
 .auth-view {
   display: flex;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 </style>

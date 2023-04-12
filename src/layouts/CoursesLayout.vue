@@ -61,7 +61,7 @@ export default {
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
-  background: $blue-primary;
+  background: blue;
   color: #fff;
   white-space: nowrap;
 
