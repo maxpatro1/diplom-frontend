@@ -18,10 +18,31 @@
       <input
         v-bind="field"
         :value="modelValue"
-        :type="type"
+        :type="fieldType"
         :placeholder="placeholder"
         class="base-input__input"
       >
+      <button
+        v-if="isShowEyeButton && !hideEyeButton"
+        type="button"
+        class="base-input__eye"
+        @click="isOpenEye = !isOpenEye"
+      >
+        <svg-sprite
+          v-if="isOpenEye"
+          symbol="eye"
+          width="24"
+          height="24"
+          class="base-input__eye-icon"
+        />
+        <svg-sprite
+          v-else
+          symbol="eye-close"
+          width="24"
+          height="24"
+          class="base-input__eye-icon"
+        />
+      </button>
       <error-message class="base-input__alert" :name="name" />
     </label>
   </v-field>
@@ -52,17 +73,33 @@ export default {
     type: {
       type: String,
       default: 'text'
+    },
+    hideEyeButton: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
     VField: Field,
     ErrorMessage,
   },
+  data() {
+    return {
+      isOpenEye: true
+    }
+  },
   computed: {
     classes() {
       return [
         'base-input',
       ];
+    },
+    fieldType() {
+      if (!this.isOpenEye) return 'text';
+      return this.type;
+    },
+    isShowEyeButton() {
+      return this.type === 'password'
     }
   }
 };
@@ -70,6 +107,7 @@ export default {
 
 <style lang="scss" scoped>
 .base-input {
+  position: relative;
   width: 100%;
   display: grid;
   grid-template-columns: auto;
@@ -86,6 +124,16 @@ export default {
     .base-input__input {
       border: 1px solid $signal-red;
     }
+  }
+
+  &__eye {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
   }
 
   &__alert {

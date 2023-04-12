@@ -7,6 +7,15 @@
       type="email"
       placeholder="Введите почту"
     />
+    <div class="auth__wrapper">
+      <base-input
+        v-model="password"
+        name="password"
+        type="password"
+        placeholder="Введите пароль"
+      />
+      <button type="button" class="auth__link">Забыли пароль?</button>
+    </div>
     <base-button type="submit">Войти</base-button>
   </v-form>
 </template>
@@ -47,6 +56,20 @@ export default {
   padding: 32px;
   background-color: #fff;
   border-radius: 32px;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 8px;
+  }
+
+  &__link {
+    text-align: left;
+    font-size: 16px;
+    line-height: 24px;
+    color: $dark-blue;
+    background: transparent;
+  }
 
   &__app-title {
     font-size: 32px;
