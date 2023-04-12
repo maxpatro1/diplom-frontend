@@ -20,10 +20,15 @@
         :value="modelValue"
         :type="fieldType"
         :placeholder="placeholder"
-        class="base-input__input"
+        :class="[
+          'base-input__input',
+          {
+            'base-input__input--pr': isShowEyeButton
+          }
+        ]"
       >
       <button
-        v-if="isShowEyeButton && !hideEyeButton"
+        v-if="isShowEyeButton"
         type="button"
         class="base-input__eye"
         @click="isOpenEye = !isOpenEye"
@@ -99,7 +104,7 @@ export default {
       return this.type;
     },
     isShowEyeButton() {
-      return this.type === 'password'
+      return this.type === 'password' && !this.hideEyeButton;
     }
   }
 };
@@ -153,6 +158,10 @@ export default {
     border: 1px solid $traffic-gray;
     border-radius: 16px;
     transition: $transition-md;
+
+    &--pr {
+      padding-right: 48px;
+    }
 
     &::placeholder {
       color: $traffic-gray;
