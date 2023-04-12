@@ -170,6 +170,7 @@ export default {
 
     &:focus {
       border: 1px solid $dark-blue;
+      outline: none;
     }
   }
 }

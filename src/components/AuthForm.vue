@@ -69,6 +69,7 @@ export default {
     line-height: 24px;
     color: $dark-blue;
     background: transparent;
+    justify-self: start;
   }
 
   &__app-title {
