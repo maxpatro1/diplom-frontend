@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :disabled="isLoading">
+  <button :class="classes" :type="type" :disabled="isLoading">
     <base-circle-loader v-if="isLoading" :color="loaderColor" />
     <slot v-else></slot>
   </button>
@@ -21,6 +21,10 @@ export default {
     isLoading: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String,
+      default: 'button'
     }
   },
   components: {
