@@ -23,4 +23,8 @@
     <path d="M17.82 5.76998C16.07 4.44998 14.07 3.72998 12 3.72998C8.47003 3.72998 5.18003 5.80998 2.89003 9.40998C1.99003 10.82 1.99003 13.19 2.89003 14.6C3.68003 15.84 4.60003 16.91 5.60003 17.77M8.42003 19.53C9.56003 20.01 10.77 20.27 12 20.27C15.53 20.27 18.82 18.19 21.11 14.59C22.01 13.18 22.01 10.81 21.11 9.39998C20.78 8.87998 20.42 8.38998 20.05 7.92998" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M15.51 12.7C15.3745 13.3976 15.0337 14.0387 14.5312 14.5412C14.0287 15.0437 13.3876 15.3845 12.69 15.52M9.47 14.53L2 22M22 2L14.53 9.47" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+
+  <symbol id="arrow-left" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 4L7 12L15 20" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
 </svg>

@@ -1,4 +1,5 @@
 const AuthView = () => import('@/views/AuthView.vue');
+const RegistrationView = () => import('@/views/RegistrationView.vue');
 const CoursesView = () => import('@/views/courses/IndexView.vue');
 const CourseView = () => import('@/views/courses/CourseView.vue');
 const LabListView = () => import('@/views/courses/labs/IndexView.vue');
@@ -14,6 +15,14 @@ const routes = [
       layout: 'auth-layout',
     //   requiresAuth: false,
     },
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: RegistrationView,
+    meta: {
+      layout: 'auth-layout'
+    }
   },
   {
     path: '/courses',

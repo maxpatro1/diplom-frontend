@@ -1,31 +1,28 @@
 <template>
-  <modal-wrapper>
-    <v-form class="auth" @submit="submit">
-      <h1 class="auth__app-title">WebLab</h1>
+  <v-form class="auth" @submit="submit">
+    <h1 class="auth__app-title">WebLab</h1>
+    <base-input
+      v-model="email"
+      name="email"
+      type="email"
+      placeholder="Введите почту"
+    />
+    <div class="auth__wrapper">
       <base-input
-        v-model="email"
-        name="email"
-        type="email"
-        placeholder="Введите почту"
+        v-model="password"
+        name="password"
+        type="password"
+        placeholder="Введите пароль"
       />
-      <div class="auth__wrapper">
-        <base-input
-          v-model="password"
-          name="password"
-          type="password"
-          placeholder="Введите пароль"
-        />
-        <button type="button" class="auth__link">Забыли пароль?</button>
-      </div>
-      <base-button type="submit">Войти</base-button>
-    </v-form>
-  </modal-wrapper>
+      <button type="button" class="auth__link">Забыли пароль?</button>
+    </div>
+    <base-button type="submit">Войти</base-button>
+  </v-form>
 </template>
 
 <script>
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseInput from '@/components/base/BaseInput.vue';
-import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 import { Form } from 'vee-validate';
 
 export default {
@@ -33,7 +30,6 @@ export default {
   components: {
     BaseButton,
     BaseInput,
-    ModalWrapper,
     VForm: Form
   },
   data() {
@@ -43,8 +39,11 @@ export default {
     };
   },
   methods: {
-    submit(values) {
-      console.log(JSON.stringify(values, null, 2));
+    submit() {
+      this.$emit('submitForm', {
+        email: this.email,
+        password: this.password
+      })
     },
   }
 };

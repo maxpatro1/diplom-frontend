@@ -1,17 +1,26 @@
 <template>
   <div class="auth-view">
-    <auth-form />
+    <modal-wrapper>
+      <auth-form @submitForm="submitAuthForm" />
+    </modal-wrapper>
   </div>
 </template>
 
 <script>
 import AuthForm from '@/components/AuthForm.vue';
+import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 
 export default {
   name: 'AuthView',
   components: {
+    ModalWrapper,
     AuthForm,
   },
+  methods: {
+    submitAuthForm(body) {
+      console.log(body);
+    }
+  }
 };
 </script>
 
