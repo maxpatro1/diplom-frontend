@@ -4,6 +4,7 @@
     <base-select
       v-model="university"
       name="university"
+      :dropdown-items="universityItems"
       placeholder="Выберите свой ВУЗ"
     />
     <base-input
@@ -32,13 +33,35 @@ export default {
   },
   data() {
     return {
-      university: '',
+      university: {
+        value: '',
+        valueToSend: ''
+      },
+      universityItems: [
+        {
+          value: 'ЛЭТИ',
+          valueToSend: 'ЛЭТИ'
+        },
+        {
+          value: 'Политех',
+          valueToSend: 'Политех'
+        },
+        {
+          value: 'Военмех',
+          valueToSend: 'Военмех'
+        },
+        {
+          value: 'СПБГУ',
+          valueToSend: 'СПБГУ'
+        },
+      ],
       group: ''
     };
   },
   methods: {
     submit() {
       this.$emit('submitForm', {
+        university: this.university.valueToSend,
         group: this.group
       })
     },

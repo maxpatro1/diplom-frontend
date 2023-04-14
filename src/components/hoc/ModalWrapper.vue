@@ -11,6 +11,7 @@
           symbol="arrow-light"
           width="24"
           height="24"
+          class="modal-wrapper__icon"
         />
       </button>
       <slot />
@@ -51,6 +52,10 @@ export default {
     padding: 12px;
     border-radius: 50%;
     background: #fff;
+  }
+
+  &__icon {
+    stroke: $black-brown;
   }
 }
 </style>
