@@ -2,12 +2,15 @@
   <v-field
     v-slot="{ field, meta }"
     :name="name"
+    :rules="rules"
+    :model-value="modelValue.value"
   >
     <label
       :class="[
         'base-select',
         {
-          'base-select--is-opened': isDropdownOpened
+          'base-select--is-opened': isDropdownOpened,
+          'base-select--no-valid': !meta.valid && meta.touched
         }
       ]"
     >
@@ -19,28 +22,30 @@
         type="text"
         class="base-select__input"
       >
-      <button type="button" class="base-select__button" @click="toggleDropdown">
-        <span v-if="!modelValue.value && placeholder" class="base-select__placeholder">
-          {{ placeholder }}
-        </span>
-        <span v-else>
-          {{ modelValue.value }}
-        </span>
-        <svg-sprite
-          symbol="arrow-light"
-          width="24"
-          height="24"
-          class="base-select__arrow"
-        />
-      </button>
-      <div v-if="isDropdownOpened" class="base-select-dropdown">
-        <ul class="base-select-dropdown__list">
-          <li v-for="item in dropdownItems" :key="item.value + item.valueToSend" class="base-select-dropdown__item">
-            <button type="button" @click="selectItem(item)" class="base-select-dropdown__button">
-              {{ item.value }}
-            </button>
-          </li>
-        </ul>
+      <div class="base-select__wrapper">
+        <button type="button" class="base-select__button" @click="toggleDropdown">
+          <span v-if="!modelValue.value && placeholder" class="base-select__placeholder">
+            {{ placeholder }}
+          </span>
+          <span v-else>
+            {{ modelValue.value }}
+          </span>
+          <svg-sprite
+            symbol="arrow-light"
+            width="24"
+            height="24"
+            class="base-select__arrow"
+          />
+        </button>
+        <div v-if="isDropdownOpened" class="base-select-dropdown">
+          <ul class="base-select-dropdown__list">
+            <li v-for="item in dropdownItems" :key="item.value + item.valueToSend" class="base-select-dropdown__item">
+              <button type="button" @click="selectItem(item)" class="base-select-dropdown__button">
+                {{ item.value }}
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
       <error-message class="base-select__alert" :name="name" />
     </label>
@@ -64,6 +69,10 @@ export default {
         valueToSend: ''
       }),
       required: true
+    },
+    rules: {
+      type: [Function, String, Object],
+      default: ''
     },
     name: {
       type: String,
@@ -105,12 +114,17 @@ export default {
 
 <style lang="scss" scoped>
 .base-select {
-  position: relative;
   width: 100%;
   display: grid;
   grid-template-columns: auto;
   gap: 4px;
   transition: $transition-md;
+
+  &__wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+  }
 
   &__input {
     position: absolute;
@@ -122,6 +136,14 @@ export default {
     &:focus {
       outline: none;
     }
+  }
+
+  &__alert {
+    padding: 0 12px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: $signal-red;
   }
 
   &__placeholder {
@@ -164,6 +186,12 @@ export default {
     stroke: $traffic-gray;
     transform: rotate(-90deg);
     transition: $transition-md;
+  }
+
+  &--no-valid {
+    .base-select__button {
+      border: 1px solid $signal-red;
+    }
   }
 
   &--is-opened {
@@ -211,7 +239,7 @@ export default {
 
   &__button {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 12px;
     font-size: 16px;

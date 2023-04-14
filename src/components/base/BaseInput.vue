@@ -64,7 +64,7 @@ export default {
       default: ''
     },
     rules: {
-      type: [Function, String],
+      type: [Function, String, Object],
       default: ''
     },
     name: {
