@@ -6,6 +6,7 @@
       name="firstName"
       type="text"
       placeholder="Введите имя"
+      rules="required"
     />
     <base-input
       v-model="lastName"

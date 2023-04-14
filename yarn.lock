@@ -1303,6 +1303,18 @@
   dependencies:
     "@types/node" "*"
 
+"@vee-validate/i18n@^4.8.3":
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/@vee-validate/i18n/-/i18n-4.8.3.tgz#3f8a317cae7d8077426caa0bcaf052710e2ebf0d"
+  integrity sha512-0ijwsxc+DHR6YqvzDtaD66IV6KYJUAfCw+npGKCvnr+fGaXbXYNhJ7d+UeT/eE5gaYyfrf6FPKynCCHGxG4ZUQ==
+
+"@vee-validate/rules@^4.8.4":
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/@vee-validate/rules/-/rules-4.8.4.tgz#016ad992725114f5f0c19c412a9206499de6e3b8"
+  integrity sha512-GTtE4XdCMl2xDZDyUmIemALN5oK1giMEh0KqwUipZcCjypLKLXuxjF3M6KFSTOeyY+0o+i4xAzcmuhutsfSi7A==
+  dependencies:
+    vee-validate "^4.8.4"
+
 "@vue/babel-helper-vue-jsx-merge-props@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@vue/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-1.4.0.tgz#8d53a1e21347db8edbe54d339902583176de09f2"
