@@ -94,11 +94,6 @@ export default {
     }
   },
   computed: {
-    classes() {
-      return [
-        'base-input',
-      ];
-    },
     fieldType() {
       if (!this.isOpenEye) return 'text';
       return this.type;
@@ -150,7 +145,6 @@ export default {
   }
 
   &__input {
-    flex-grow: 1;
     padding: 12px;
     font-size: 16px;
     line-height: 24px;

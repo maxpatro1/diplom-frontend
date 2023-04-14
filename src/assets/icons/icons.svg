@@ -24,7 +24,7 @@
     <path d="M15.51 12.7C15.3745 13.3976 15.0337 14.0387 14.5312 14.5412C14.0287 15.0437 13.3876 15.3845 12.69 15.52M9.47 14.53L2 22M22 2L14.53 9.47" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 
-  <symbol id="arrow-left" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="arrow-light" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M15 4L7 12L15 20" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 </svg>

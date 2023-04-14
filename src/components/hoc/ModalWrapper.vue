@@ -8,7 +8,7 @@
         @click="$emit('clickBackButton')"
       >
         <svg-sprite
-          symbol="arrow-left"
+          symbol="arrow-light"
           width="24"
           height="24"
         />
