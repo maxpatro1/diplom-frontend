@@ -69,6 +69,11 @@ export default {
     color: $dark-blue;
     background: transparent;
     justify-self: start;
+    transition: $transition-md;
+
+    &:hover {
+      opacity: .5;
+    }
   }
 
   &__app-title {
