@@ -1,6 +1,5 @@
 <template>
   <v-form class="university" @submit="submit">
-    <h1 class="university__title">Учебное заведение</h1>
     <base-select
       v-model="university"
       name="university"
@@ -138,11 +137,5 @@ export default {
   display: grid;
   grid-template-columns: auto;
   gap: 24px;
-
-  &__title {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 600;
-  }
 }
 </style>

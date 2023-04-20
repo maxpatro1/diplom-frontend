@@ -2,6 +2,7 @@
   <div class="registration-view">
     <modal-wrapper
       :isBaskButton="!!activeModal.back"
+      :title="activeModal.title"
       @clickBackButton="activeModal = activeModal.back"
     >
       <general-info-form
@@ -23,11 +24,13 @@ import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 
 const GENERAL_MODAL = {
   name: 'GENERAL_MODAL',
+  title: 'Общее',
   back: null
 };
 
 const UNIVERSITY_MODAL = {
   name: 'UNIVERSITY_MODAL',
+  title: 'Учебное заведение',
   back: GENERAL_MODAL
 };
 

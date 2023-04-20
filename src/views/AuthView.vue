@@ -1,6 +1,6 @@
 <template>
   <div class="auth-view">
-    <modal-wrapper>
+    <modal-wrapper title="WebLab" isBlueTitle>
       <auth-form
         @submitForm="submitAuthForm"
         @openForgetPassword="openForgetPassword"

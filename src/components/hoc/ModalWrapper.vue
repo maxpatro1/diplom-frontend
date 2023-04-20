@@ -14,6 +14,12 @@
           class="modal-wrapper__icon"
         />
       </button>
+      <h1 v-if="title && isH1" :class="titleClasses">
+        {{ title }}
+      </h1>
+      <p v-else-if="title" :class="titleClasses">
+        {{ title }}
+      </p>
       <slot />
     </div>
   </section>
@@ -26,6 +32,28 @@ export default {
     isBaskButton: {
       type: Boolean,
       default: false
+    },
+    title: {
+      type: String,
+      required: false
+    },
+    isH1: {
+      type: Boolean,
+      default: true
+    },
+    isBlueTitle: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    titleClasses() {
+      return [
+        'modal-wrapper__title',
+        {
+          ['modal-wrapper__title--blue']: this.isBlueTitle
+        }
+      ];
     }
   }
 }
@@ -37,6 +65,20 @@ export default {
   max-width: 384px;
   border-radius: 32px;
   background-color: #fff;
+
+  &__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-bottom: 24px;
+
+    &--blue {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 500;
+      color: $dark-blue;
+    }
+  }
 
   &__body {
     position: relative;

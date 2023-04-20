@@ -1,6 +1,5 @@
 <template>
   <v-form class="auth" @submit="submit">
-    <h1 class="auth__app-title">WebLab</h1>
     <base-input
       v-model="email"
       name="email"
@@ -74,13 +73,6 @@ export default {
     &:hover {
       opacity: .5;
     }
-  }
-
-  &__app-title {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 500;
-    color: $dark-blue;
   }
 }
 </style>

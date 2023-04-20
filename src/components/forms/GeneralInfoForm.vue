@@ -1,6 +1,5 @@
 <template>
   <v-form class="general" @submit="submit">
-    <h1 class="general__title">Общее</h1>
     <base-input
       v-model="firstName"
       name="firstName"
@@ -77,11 +76,5 @@ export default {
   display: grid;
   grid-template-columns: auto;
   gap: 24px;
-
-  &__title {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 600;
-  }
 }
 </style>
