@@ -10,7 +10,7 @@
         @submitForm="submitGeneralForm"
       />
       <university-info-form
-        v-if="activeModal.name === registrationModals.university.name"
+        v-else-if="activeModal.name === registrationModals.university.name"
         @submitForm="submitUniversityForm"
       />
     </modal-wrapper>
