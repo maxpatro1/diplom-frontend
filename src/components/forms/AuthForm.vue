@@ -14,7 +14,7 @@
         type="password"
         placeholder="Введите пароль"
       />
-      <button type="button" class="auth__link">Забыли пароль?</button>
+      <button type="button" class="auth__link" @click="$emit('openForgetPassword')">Забыли пароль?</button>
     </div>
     <base-button type="submit">Войти</base-button>
   </v-form>

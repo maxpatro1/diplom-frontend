@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import GeneralInfoForm from '@/components/GeneralInfoForm.vue';
-import UniversityInfoForm from '@/components/UniversityInfoForm.vue';
+import GeneralInfoForm from '@/components/forms/GeneralInfoForm.vue';
+import UniversityInfoForm from '@/components/forms/UniversityInfoForm.vue';
 import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 
 const GENERAL_MODAL = {

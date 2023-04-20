@@ -1,13 +1,16 @@
 <template>
   <div class="auth-view">
     <modal-wrapper>
-      <auth-form @submitForm="submitAuthForm" />
+      <auth-form
+        @submitForm="submitAuthForm"
+        @openForgetPassword="openForgetPassword"
+      />
     </modal-wrapper>
   </div>
 </template>
 
 <script>
-import AuthForm from '@/components/AuthForm.vue';
+import AuthForm from '@/components/forms/AuthForm.vue';
 import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 
 export default {
@@ -19,6 +22,9 @@ export default {
   methods: {
     submitAuthForm(body) {
       console.log(body);
+    },
+    openForgetPassword() {
+      console.log('openForgetPassword');
     }
   }
 };
