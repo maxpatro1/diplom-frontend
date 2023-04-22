@@ -1,9 +1,9 @@
 const AuthView = () => import('@/views/AuthView.vue');
 const RegistrationView = () => import('@/views/RegistrationView.vue');
 const CoursesView = () => import('@/views/courses/IndexView.vue');
-const CourseView = () => import('@/views/courses/CourseView.vue');
+const CourseView = () => import('@/views/courses/_id/IndexView.vue');
 const LabListView = () => import('@/views/courses/labs/IndexView.vue');
-const LabView = () => import('@/views/courses/labs/LabView.vue');
+const LabView = () => import('@/views/courses/labs/_id/IndexView.vue');
 
 const routes = [
   {
