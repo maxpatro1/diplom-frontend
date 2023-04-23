@@ -1,12 +1,12 @@
 <template>
   <button :class="classes" :type="type" :disabled="isLoading">
-    <base-circle-loader v-if="isLoading" :color="loaderColor" />
+    <base-round-loader v-if="isLoading" :color="loaderColor" />
     <slot v-else></slot>
   </button>
 </template>
 
 <script>
-import BaseCircleLoader from '@/components/base/BaseCircleLoader.vue';
+import BaseRoundLoader from '@/components/base/BaseRoundLoader.vue';
 
 const COLORS = ['blue', 'light', 'danger'];
 
@@ -32,7 +32,7 @@ export default {
     }
   },
   components: {
-    BaseCircleLoader,
+    BaseRoundLoader,
   },
   computed: {
     loaderColor() {

@@ -8,7 +8,7 @@
 const COLORS = ['dark', 'light', 'danger'];
 
 export default {
-  name: 'BaseCircleLoader',
+  name: 'BaseRoundLoader',
   props: {
     color: {
       type: String,
