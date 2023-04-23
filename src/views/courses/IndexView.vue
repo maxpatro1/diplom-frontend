@@ -1,5 +1,6 @@
 <template>
-  <div class="courses-view">
+  <div class="courses">
+    <h1 class="courses__title">Список курсов</h1>
     <courses-header />
     <courses-list />
     <courses-footer />
@@ -22,10 +23,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.courses-view {
+.courses {
   display: grid;
   grid-template-columns: auto;
   gap: 24px;
+  padding-top: 24px;
   padding-bottom: 56px;
+
+  &__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
 }
 </style>
