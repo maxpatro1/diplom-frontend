@@ -1,7 +1,5 @@
 <template>
-  <svg :class="classes" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M21 12C21 10.4387 20.5938 8.90425 19.8214 7.54741C19.049 6.19057 17.9369 5.05801 16.5943 4.26099C15.2518 3.46398 13.725 3.02993 12.1639 3.00149C10.6029 2.97305 9.06131 3.3512 7.69062 4.09878C6.31993 4.84636 5.1673 5.93766 4.34597 7.26547C3.52463 8.59328 3.06284 10.1119 3.00597 11.6722C2.9491 13.2324 3.2991 14.7807 4.02159 16.1647C4.74408 17.5488 5.81421 18.7211 7.12683 19.5665L7.8044 18.5145C6.67428 17.7866 5.75295 16.7773 5.13091 15.5857C4.50888 14.394 4.20754 13.0611 4.2565 11.7178C4.30547 10.3744 4.70305 9.06695 5.41018 7.92376C6.11732 6.78057 7.10969 5.84101 8.2898 5.19737C9.4699 4.55373 10.7972 4.22816 12.1411 4.25265C13.4851 4.27713 14.7996 4.65083 15.9555 5.33703C17.1114 6.02322 18.0689 6.99831 18.7339 8.1665C19.3989 9.33469 19.7486 10.6558 19.7486 12H21Z"/>
-  </svg>
+  <span :class="classes"></span>
 </template>
 
 <script>
@@ -26,27 +24,50 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .base-loader {
-  animation: base-loader 1.2s cubic-bezier(0.5, 0.3, 0.5, 0.8) infinite;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+
+  &::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    animation: prixClipFix 2s linear infinite ;
+    clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%);
+  }
+
   &.is-dark {
-    fill: $black-brown;
+    &::before {
+      border-color: $black-brown;
+    }
   }
   &.is-light {
-    fill: $white;
+    &::before {
+      border-color: #fff;
+    }
   }
   &.is-danger {
-    fill: $signal-red;
+    &::before {
+      border-color: $signal-red;
+    }
   }
 }
+@keyframes rotate {
+  100%   {transform: rotate(360deg)}
+}
 
-@keyframes base-loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
 }
 </style>
