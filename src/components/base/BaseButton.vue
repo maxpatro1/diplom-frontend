@@ -25,6 +25,10 @@ export default {
     type: {
       type: String,
       default: 'button'
+    },
+    isLong: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -46,6 +50,7 @@ export default {
         'base-button',
         `color-${this.color}`,
         {
+          ['base-button--long']: this.isLong,
           ['is-loading']: this.isLoading
         }
       ];
@@ -64,6 +69,10 @@ export default {
   border-radius: 16px;
   cursor: pointer;
   transition: $transition-md;
+
+  &--long {
+    padding: 8px 16px;
+  }
 
   &:hover {
     opacity: .5;
