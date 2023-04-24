@@ -65,6 +65,7 @@ export default {
   max-width: 384px;
   border-radius: 32px;
   background-color: #fff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 8px 8px rgba(0, 0, 0, 0.16);
 
   &__title {
     font-size: 24px;
