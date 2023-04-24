@@ -13,13 +13,13 @@ export default {
   props: {
     href: {
       type: String,
-      default: ''
+      default: '',
     },
     to: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 };
 </script>
 

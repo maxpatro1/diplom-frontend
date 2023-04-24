@@ -13,7 +13,13 @@
         type="password"
         placeholder="Введите пароль"
       />
-      <button type="button" class="auth__link" @click="$emit('openForgetPassword')">Забыли пароль?</button>
+      <button
+        type="button"
+        class="auth__link"
+        @click="$emit('openForgetPassword')"
+      >
+        Забыли пароль?
+      </button>
     </div>
     <base-button type="submit">Войти</base-button>
   </v-form>
@@ -29,22 +35,22 @@ export default {
   components: {
     BaseButton,
     BaseInput,
-    VForm: Form
+    VForm: Form,
   },
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
     };
   },
   methods: {
     submit() {
       this.$emit('submitForm', {
         email: this.email,
-        password: this.password
-      })
+        password: this.password,
+      });
     },
-  }
+  },
 };
 </script>
 

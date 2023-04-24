@@ -13,7 +13,7 @@ export default {
   name: 'CoursesList',
   components: {
     CoursesListItem,
-  }
+  },
 };
 </script>
 

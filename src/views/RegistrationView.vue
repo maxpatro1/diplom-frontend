@@ -25,13 +25,13 @@ import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 const GENERAL_MODAL = {
   name: 'GENERAL_MODAL',
   title: 'Общее',
-  back: null
+  back: null,
 };
 
 const UNIVERSITY_MODAL = {
   name: 'UNIVERSITY_MODAL',
   title: 'Учебное заведение',
-  back: GENERAL_MODAL
+  back: GENERAL_MODAL,
 };
 
 export default {
@@ -45,10 +45,10 @@ export default {
     return {
       registrationModals: {
         general: GENERAL_MODAL,
-        university: UNIVERSITY_MODAL
+        university: UNIVERSITY_MODAL,
       },
-      activeModal: GENERAL_MODAL
-    }
+      activeModal: GENERAL_MODAL,
+    };
   },
   methods: {
     submitGeneralForm(body) {
@@ -57,8 +57,8 @@ export default {
     },
     submitUniversityForm(body) {
       console.log(body);
-    }
-  }
+    },
+  },
 };
 </script>
 

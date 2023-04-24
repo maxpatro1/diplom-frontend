@@ -11,18 +11,18 @@ export default {
     color: {
       type: String,
       default: 'light',
-      validator: (value) => COLORS.includes(value)
-    }
+      validator: (value) => COLORS.includes(value),
+    },
   },
   computed: {
     classes() {
       return [
         'base-loader',
-        `is-${this.color}`
+        `is-${this.color}`,
       ];
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 .base-loader {

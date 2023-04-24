@@ -14,16 +14,16 @@ export default {
     color: {
       type: String,
       default: 'blue',
-      validator: (value) => COLORS.includes(value)
+      validator: (value) => COLORS.includes(value),
     },
     size: {
       type: Number,
-      default: 24
+      default: 24,
     },
     process: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   computed: {
     classes() {
@@ -32,9 +32,9 @@ export default {
         'base-loader',
         `is-${this.color}`,
         `size-${this.size}`,
-        `process-${processNumber}`
+        `process-${processNumber}`,
       ];
-    }
+    },
   },
   methods: {
     roundProcessNumber(number, counter) {
@@ -44,13 +44,14 @@ export default {
       const downCurrentNumber = currentNumber - counter;
       const upCurrentNumber = currentNumber + counter;
 
-      const process = PROCESS_NUMBERS.find((el) => el === currentNumber || el === upCurrentNumber || el === downCurrentNumber);
+      const process = PROCESS_NUMBERS
+        .find((el) => el === currentNumber || el === upCurrentNumber || el === downCurrentNumber);
 
       if (process === 0) return process;
       return process || this.roundProcessNumber(number, counter + 1);
     },
-  }
-}
+  },
+};
 </script>
 <style lang="scss" scoped>
 .base-loader {
@@ -118,7 +119,7 @@ export default {
       clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,25% 0);
     }
   }
-  
+
   &.process-12 {
     &::before {
       clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,50% 0);
@@ -134,7 +135,7 @@ export default {
       clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0);
     }
   }
-  
+
   &.process-32 {
     &::before {
       clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 25%)

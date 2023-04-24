@@ -16,20 +16,20 @@ export default {
     color: {
       type: String,
       default: 'blue',
-      validator: (value) => COLORS.includes(value)
+      validator: (value) => COLORS.includes(value),
     },
     isLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
     isLong: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
     BaseRoundLoader,
@@ -38,11 +38,11 @@ export default {
     loaderColor() {
       switch (this.color) {
         case COLORS[1]:
-          return 'dark'
+          return 'dark';
         case COLORS[2]:
-          return 'danger'
+          return 'danger';
         default:
-          return 'light'
+          return 'light';
       }
     },
     classes() {
@@ -50,12 +50,12 @@ export default {
         'base-button',
         `color-${this.color}`,
         {
-          ['base-button--long']: this.isLong,
-          ['is-loading']: this.isLoading
-        }
+          'base-button--long': this.isLong,
+          'is-loading': this.isLoading,
+        },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 

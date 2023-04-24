@@ -1,6 +1,11 @@
 <template>
   <label :class="classes">
-    <input :checked="modelValue" type="checkbox" class="base-checkbox__input" @change="$emit('update:modelValue', $event.target.checked)">
+    <input
+      :checked="modelValue"
+      type="checkbox"
+      class="base-checkbox__input"
+      @change="$emit('update:modelValue', $event.target.checked)"
+    >
     <span class="base-checkbox__mark"></span>
     <span class="base-checkbox__label">{{ label }}</span>
   </label>
@@ -12,20 +17,20 @@ export default {
   props: {
     modelValue: {
       type: Boolean,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     markLast: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isGrayLabel: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -34,10 +39,10 @@ export default {
         {
           reverse: this.markLast,
           'gray-label': this.isGrayLabel,
-        }
+        },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -21,8 +21,8 @@ const routes = [
     name: 'registration',
     component: RegistrationView,
     meta: {
-      layout: 'auth-layout'
-    }
+      layout: 'auth-layout',
+    },
   },
   {
     path: '/courses',
@@ -30,7 +30,7 @@ const routes = [
     component: CoursesView,
     meta: {
       layout: 'courses-layout',
-    }
+    },
   },
   {
     path: '/courses/:courseId', // unused page

@@ -20,20 +20,20 @@ export default {
   components: {
     BaseButton,
     BaseInput,
-    VForm: Form
+    VForm: Form,
   },
   data() {
     return {
-      email: ''
+      email: '',
     };
   },
   methods: {
     submit() {
       this.$emit('submitForm', {
         email: this.email,
-      })
+      });
     },
-  }
+  },
 };
 </script>
 

@@ -39,7 +39,11 @@
         </button>
         <div v-if="isDropdownOpened" class="base-select-dropdown">
           <ul class="base-select-dropdown__list">
-            <li v-for="item in dropdownItems" :key="item.value + item.valueToSend" class="base-select-dropdown__item">
+            <li
+              v-for="item in dropdownItems"
+              :key="item.value + item.valueToSend"
+              class="base-select-dropdown__item"
+            >
               <button type="button" @click="selectItem(item)" class="base-select-dropdown__button">
                 {{ item.value }}
               </button>
@@ -66,21 +70,21 @@ export default {
       type: Object,
       default: () => ({
         value: '',
-        valueToSend: ''
+        valueToSend: '',
       }),
-      required: true
+      required: true,
     },
     rules: {
       type: [Function, String, Object],
-      default: ''
+      default: '',
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     dropdownItems: {
       type: Array,
@@ -88,13 +92,13 @@ export default {
         {
           value: 'Default item',
           valueToSend: 'DEFAULT_ITEM',
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   data() {
     return {
-      isDropdownOpened: false
+      isDropdownOpened: false,
     };
   },
   methods: {
@@ -107,8 +111,8 @@ export default {
     },
     closeDropdown() {
       this.isDropdownOpened = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

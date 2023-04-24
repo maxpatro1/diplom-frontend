@@ -17,8 +17,8 @@ export default {
   components: {
     CoursesList,
     CoursesHeader,
-    CoursesFooter
-}
+    CoursesFooter,
+  },
 };
 </script>
 

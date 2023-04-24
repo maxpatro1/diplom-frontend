@@ -11,7 +11,9 @@ module.exports = {
     parser: '@babel/eslint-parser',
   },
   rules: {
-    'vuejs-accessibility/label-has-for': false,
+    'eol-last': 1,
+    'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 0 }],
+    'vuejs-accessibility/label-has-for': 0,
     semi: [2, 'always'],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

@@ -19,36 +19,36 @@ import BaseRadio from '@/components/base/BaseRadio.vue';
 export default {
   name: 'BaseRadioBox',
   components: {
-    BaseRadio
+    BaseRadio,
   },
   props: {
     modelValue: {
       type: Object,
       default: () => ({
         label: 'Default radio',
-        valueToSend: 'DEFAULT_RADIO'
+        valueToSend: 'DEFAULT_RADIO',
       }),
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     items: {
       type: Array,
       default: () => [
         {
           label: 'Default radio',
-          valueToSend: 'DEFAULT_RADIO'
-        }
+          valueToSend: 'DEFAULT_RADIO',
+        },
       ],
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

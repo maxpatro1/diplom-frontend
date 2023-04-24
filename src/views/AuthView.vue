@@ -28,14 +28,14 @@ const AUTH_MODAL = {
   name: 'AUTH_MODAL',
   title: 'WebLab',
   isBlueTitle: true,
-  back: null
+  back: null,
 };
 
 const FORGET_PASSWORD_MODAL = {
   name: 'FORGET_PASSWORD_MODAL',
   title: 'Напомнить пароль',
   isBlueTitle: false,
-  back: AUTH_MODAL
+  back: AUTH_MODAL,
 };
 
 export default {
@@ -43,15 +43,15 @@ export default {
   components: {
     ModalWrapper,
     AuthForm,
-    ForgetPasswordForm
+    ForgetPasswordForm,
   },
   data() {
     return {
       authModals: {
         auth: AUTH_MODAL,
-        forgetPassword: FORGET_PASSWORD_MODAL
+        forgetPassword: FORGET_PASSWORD_MODAL,
       },
-      activeModal: AUTH_MODAL
+      activeModal: AUTH_MODAL,
     };
   },
   methods: {
@@ -64,8 +64,8 @@ export default {
     openForgetPassword() {
       this.activeModal = this.authModals.forgetPassword;
       console.log('openForgetPassword');
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -16,7 +16,7 @@ export default {
   name: 'HeaderMain',
   components: {
     HeaderUserDropdown,
-  }
+  },
 };
 </script>
 

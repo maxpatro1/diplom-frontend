@@ -31,32 +31,32 @@ export default {
   props: {
     isBaskButton: {
       type: Boolean,
-      default: false
+      default: false,
     },
     title: {
       type: String,
-      required: false
+      required: false,
     },
     isH1: {
       type: Boolean,
-      default: true
+      default: true,
     },
     isBlueTitle: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     titleClasses() {
       return [
         'modal-wrapper__title',
         {
-          ['modal-wrapper__title--blue']: this.isBlueTitle
-        }
+          'modal-wrapper__title--blue': this.isBlueTitle,
+        },
       ];
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

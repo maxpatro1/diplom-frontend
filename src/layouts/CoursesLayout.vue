@@ -16,7 +16,7 @@ export default {
   name: 'CoursesLayout',
   components: {
     HeaderMain,
-  }
+  },
 };
 </script>
 

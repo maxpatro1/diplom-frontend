@@ -45,7 +45,7 @@ export default {
   components: {
     BaseButton,
     BaseInput,
-    VForm: Form
+    VForm: Form,
   },
   data() {
     return {
@@ -53,7 +53,7 @@ export default {
       lastName: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
     };
   },
   methods: {
@@ -63,10 +63,10 @@ export default {
         lastName: this.lastName,
         email: this.email,
         password: this.password,
-        confirmPassword: this.confirmPassword
-      })
+        confirmPassword: this.confirmPassword,
+      });
     },
-  }
+  },
 };
 </script>
 

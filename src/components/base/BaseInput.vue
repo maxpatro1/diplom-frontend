@@ -61,28 +61,28 @@ export default {
   props: {
     modelValue: {
       type: String,
-      default: ''
+      default: '',
     },
     rules: {
       type: [Function, String, Object],
-      default: ''
+      default: '',
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     hideEyeButton: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
     VField: Field,
@@ -90,8 +90,8 @@ export default {
   },
   data() {
     return {
-      isOpenEye: true
-    }
+      isOpenEye: true,
+    };
   },
   computed: {
     fieldType() {
@@ -100,8 +100,8 @@ export default {
     },
     isShowEyeButton() {
       return this.type === 'password' && !this.hideEyeButton;
-    }
-  }
+    },
+  },
 };
 </script>
 

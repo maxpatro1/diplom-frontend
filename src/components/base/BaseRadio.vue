@@ -36,26 +36,26 @@ export default {
   props: {
     modelValue: {
       type: String,
-      required: true
+      required: true,
     },
     value: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      default: 'default label'
+      default: 'default label',
     },
   },
   computed: {
     isChecked() {
       return this.modelValue === this.value;
-    }
-  }
+    },
+  },
 };
 </script>
 
