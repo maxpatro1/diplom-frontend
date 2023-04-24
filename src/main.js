@@ -11,7 +11,8 @@ const app = createApp(App);
 app.use(store);
 app.use(router);
 app.use(svgSpritePlugin, {
-  url: require('@/assets/icons/icons.svg')
+  // eslint-disable-next-line global-require
+  url: require('@/assets/icons/icons.svg'),
 });
 
 initVeeValidateRules();
