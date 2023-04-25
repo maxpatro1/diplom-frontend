@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component v-if="modal" :is="modal"/>
+    <component v-if="activeModal" :is="activeModal"/>
     <component :is="layout">
       <router-view/>
     </component>
@@ -15,6 +15,7 @@ import CoursesLayout from '@/layouts/CoursesLayout.vue';
 // modals
 import { MODAL_NAMES } from '@/store/modules/modal/constants';
 import RegistrationSuccessModal from '@/components/modals/RegistrationSuccessModal.vue';
+import PasswordSentModal from '@/components/modals/PasswordSentModal.vue';
 
 export default {
   name: 'App',
@@ -23,14 +24,12 @@ export default {
     AuthLayout,
     CoursesLayout,
     [MODAL_NAMES.REGISTRATION_SUCCESS]: RegistrationSuccessModal,
+    [MODAL_NAMES.PASSWORD_SENT_TO_EMAIL]: PasswordSentModal,
   },
   computed: {
     ...mapGetters({
       activeModal: 'modal/activeModal',
     }),
-    modal() {
-      return this.activeModal;
-    },
     layout() {
       const { layout } = this.$route.meta;
       return layout || 'empty-layout';

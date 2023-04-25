@@ -20,9 +20,11 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 import AuthForm from '@/components/forms/AuthForm.vue';
 import ForgetPasswordForm from '@/components/forms/ForgetPasswordForm.vue';
+import { MODAL_NAMES } from '@/store/modules/modal/constants';
 
 const AUTH_MODAL = {
   name: 'AUTH_MODAL',
@@ -55,11 +57,15 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      showModal: 'modal/showModal',
+    }),
     submitAuthForm(body) {
       console.log(body);
     },
     submitForgetPasswordForm(body) {
       console.log(body);
+      this.showModal(MODAL_NAMES.PASSWORD_SENT_TO_EMAIL);
     },
     openForgetPassword() {
       this.activeModal = this.authModals.forgetPassword;
