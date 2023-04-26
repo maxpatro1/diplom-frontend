@@ -1,3 +1,5 @@
+import { LAYOUTS_NAMES } from '@/utils/constants';
+
 const AuthView = () => import('@/views/AuthView.vue');
 const RegistrationView = () => import('@/views/RegistrationView.vue');
 const CoursesView = () => import('@/views/courses/IndexView.vue');
@@ -12,7 +14,7 @@ const routes = [
     component: AuthView,
     meta: {
     //   title: 'Авторизация',
-      layout: 'auth-layout',
+      layout: LAYOUTS_NAMES.AUTH_LAYOUT,
     //   requiresAuth: false,
     },
   },
@@ -21,7 +23,7 @@ const routes = [
     name: 'registration',
     component: RegistrationView,
     meta: {
-      layout: 'auth-layout',
+      layout: LAYOUTS_NAMES.AUTH_LAYOUT,
     },
   },
   {
@@ -29,7 +31,7 @@ const routes = [
     name: 'courses',
     component: CoursesView,
     meta: {
-      layout: 'courses-layout',
+      layout: LAYOUTS_NAMES.COURSES_LAYOUT,
     },
   },
   {
@@ -46,6 +48,9 @@ const routes = [
     path: '/courses/:courseId/labs/:labId',
     name: 'lab',
     component: LabView,
+    meta: {
+      layout: LAYOUTS_NAMES.LAB_LAYOUT,
+    },
   },
 ];
 
