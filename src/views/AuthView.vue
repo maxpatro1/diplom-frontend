@@ -18,7 +18,10 @@
     </modal-wrapper>
 
     <teleport to="body">
-      <registration-success-modal v-if="isRegistrationSuccessModal" />
+      <registration-success-modal
+        v-if="isRegistrationSuccessModal"
+        @closeModal="isRegistrationSuccessModal = false"
+      />
     </teleport>
   </div>
 </template>

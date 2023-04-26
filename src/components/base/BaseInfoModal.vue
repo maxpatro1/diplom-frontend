@@ -1,7 +1,7 @@
 <template>
-  <modal-backdrop @clickOnBackdrop="closeModal" @keyupOnBackdrop="closeModal">
+  <modal-backdrop @clickOnBackdrop="clickOnBackdrop" @keyupOnBackdrop="clickOnBackdrop">
     <modal-wrapper :title="title">
-      <base-button class="modal-button" @click="closeModal">{{ buttonText }}</base-button>
+      <base-button class="modal-button" @click="clickOnButton">{{ buttonText }}</base-button>
     </modal-wrapper>
   </modal-backdrop>
 </template>
@@ -29,8 +29,11 @@ export default {
     BaseButton,
   },
   methods: {
-    closeModal() {
-      // this.hideCurrentModal(this.modalName);
+    clickOnBackdrop() {
+      this.$emit('clickOnBackdrop');
+    },
+    clickOnButton() {
+      this.$emit('clickOnBackdrop');
     },
   },
 };

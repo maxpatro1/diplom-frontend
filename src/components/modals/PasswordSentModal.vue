@@ -2,6 +2,8 @@
   <base-info-modal
     title="Ваш пароль отправлен на почту"
     buttonText="Понятно"
+    @clickOnButton="$emit('closeModal')"
+    @clickOnBackdrop="$emit('closeModal')"
   />
 </template>
 

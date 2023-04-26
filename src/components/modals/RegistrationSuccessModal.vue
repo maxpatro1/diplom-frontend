@@ -2,6 +2,8 @@
   <base-info-modal
     title="Регистрация прошла успешно"
     buttonText="Отлично"
+    @clickOnButton="$emit('closeModal')"
+    @clickOnBackdrop="$emit('closeModal')"
   />
 </template>
 

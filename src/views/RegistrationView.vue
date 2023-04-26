@@ -16,7 +16,10 @@
     </modal-wrapper>
 
     <teleport to="body">
-      <password-sent-modal v-if="isPasswordSentModalShow" />
+      <password-sent-modal
+        v-if="isPasswordSentModalShow"
+        @closeModal="isPasswordSentModalShow = false"
+      />
     </teleport>
   </div>
 </template>
