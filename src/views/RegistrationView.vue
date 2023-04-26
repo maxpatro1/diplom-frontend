@@ -14,15 +14,18 @@
         @submitForm="submitUniversityForm"
       />
     </modal-wrapper>
+
+    <teleport to="body">
+      <password-sent-modal v-if="isPasswordSentModalShow" />
+    </teleport>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import GeneralInfoForm from '@/components/forms/GeneralInfoForm.vue';
 import UniversityInfoForm from '@/components/forms/UniversityInfoForm.vue';
 import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
-import { MODAL_NAMES } from '@/store/modules/modal/constants';
+import PasswordSentModal from '@/components/modals/PasswordSentModal.vue';
 
 const GENERAL_MODAL = {
   name: 'GENERAL_MODAL',
@@ -42,9 +45,11 @@ export default {
     ModalWrapper,
     GeneralInfoForm,
     UniversityInfoForm,
+    PasswordSentModal,
   },
   data() {
     return {
+      isPasswordSentModalShow: false,
       registrationModals: {
         general: GENERAL_MODAL,
         university: UNIVERSITY_MODAL,
@@ -53,15 +58,12 @@ export default {
     };
   },
   methods: {
-    ...mapActions({
-      showModal: 'modal/showModal',
-    }),
     submitGeneralForm(body) {
       console.log(body);
       this.activeModal = this.registrationModals.university;
     },
     submitUniversityForm(body) {
-      this.showModal(MODAL_NAMES.REGISTRATION_SUCCESS);
+      this.isPasswordSentModalShow = true;
       console.log(body);
     },
   },

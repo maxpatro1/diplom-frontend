@@ -16,15 +16,18 @@
         @submitForm="submitForgetPasswordForm"
       />
     </modal-wrapper>
+
+    <teleport to="body">
+      <registration-success-modal v-if="isRegistrationSuccessModal" />
+    </teleport>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
 import AuthForm from '@/components/forms/AuthForm.vue';
 import ForgetPasswordForm from '@/components/forms/ForgetPasswordForm.vue';
-import { MODAL_NAMES } from '@/store/modules/modal/constants';
+import RegistrationSuccessModal from '@/components/modals/PasswordSentModal.vue';
 
 const AUTH_MODAL = {
   name: 'AUTH_MODAL',
@@ -46,9 +49,11 @@ export default {
     ModalWrapper,
     AuthForm,
     ForgetPasswordForm,
+    RegistrationSuccessModal,
   },
   data() {
     return {
+      isRegistrationSuccessModal: false,
       authModals: {
         auth: AUTH_MODAL,
         forgetPassword: FORGET_PASSWORD_MODAL,
@@ -57,15 +62,12 @@ export default {
     };
   },
   methods: {
-    ...mapActions({
-      showModal: 'modal/showModal',
-    }),
     submitAuthForm(body) {
       console.log(body);
     },
     submitForgetPasswordForm(body) {
       console.log(body);
-      this.showModal(MODAL_NAMES.PASSWORD_SENT_TO_EMAIL);
+      this.isRegistrationSuccessModal = true;
     },
     openForgetPassword() {
       this.activeModal = this.authModals.forgetPassword;
