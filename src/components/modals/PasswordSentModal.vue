@@ -1,16 +1,13 @@
 <template>
-  <modal-backdrop @clickOnBackdrop="closeModal" @keyupOnBackdrop="closeModal">
-    <modal-wrapper title="Ваш пароль отправлен на почту">
-      <base-button class="modal-button" @click="closeModal">Понятно</base-button>
-    </modal-wrapper>
-  </modal-backdrop>
+  <base-info-modal
+    :modalName="modalName"
+    title="Ваш пароль отправлен на почту"
+    buttonText="Понятно"
+  />
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import ModalWrapper from '@/components/hoc/ModalWrapper.vue';
-import ModalBackdrop from '@/components/hoc/ModalBackdrop.vue';
-import BaseButton from '@/components/base/BaseButton.vue';
+import BaseInfoModal from '@/components/base/BaseInfoModal.vue';
 import { MODAL_NAMES } from '@/store/modules/modal/constants';
 
 export default {
@@ -21,23 +18,7 @@ export default {
     };
   },
   components: {
-    ModalWrapper,
-    ModalBackdrop,
-    BaseButton,
-  },
-  methods: {
-    ...mapActions({
-      hideCurrentModal: 'modal/hideCurrentModal',
-    }),
-    closeModal() {
-      this.hideCurrentModal(this.modalName);
-    },
+    BaseInfoModal,
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.modal-button {
-  width: 100%;
-}
-</style>
