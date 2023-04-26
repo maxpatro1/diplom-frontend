@@ -4,8 +4,7 @@ const AuthView = () => import('@/views/AuthView.vue');
 const RegistrationView = () => import('@/views/RegistrationView.vue');
 const CoursesView = () => import('@/views/courses/IndexView.vue');
 const CourseView = () => import('@/views/courses/_courseId/IndexView.vue');
-const LabListView = () => import('@/views/courses/_courseId/labs/IndexView.vue');
-const LabView = () => import('@/views/courses/_courseId/labs/_labId/IndexView.vue');
+const LabView = () => import('@/views/courses/_courseId/_labId/IndexView.vue');
 
 const routes = [
   {
@@ -40,12 +39,7 @@ const routes = [
     component: CourseView,
   },
   {
-    path: '/courses/:courseId/labs',
-    name: 'labList',
-    component: LabListView,
-  },
-  {
-    path: '/courses/:courseId/labs/:labId',
+    path: '/courses/:courseId/:labId',
     name: 'lab',
     component: LabView,
     meta: {
