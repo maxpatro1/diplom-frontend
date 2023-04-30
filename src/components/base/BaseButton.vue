@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :type="type" :disabled="isLoading">
+  <button :class="classes" :type="type" :disabled="disabled || isLoading">
     <base-round-loader v-if="isLoading" :color="loaderColor" />
     <slot v-else></slot>
   </button>
@@ -30,6 +30,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     BaseRoundLoader,
@@ -52,6 +56,7 @@ export default {
         {
           'base-button--long': this.isLong,
           'is-loading': this.isLoading,
+          'is-disabled': !this.isLoading && this.disabled,
         },
       ];
     },
@@ -95,6 +100,15 @@ export default {
   &.is-loading {
     opacity: .5;
     cursor: wait;
+
+    &:hover {
+      opacity: .5s;
+    }
+  }
+
+  &.is-disabled {
+    opacity: .5;
+    cursor: not-allowed;
 
     &:hover {
       opacity: .5s;
