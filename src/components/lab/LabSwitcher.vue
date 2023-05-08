@@ -141,6 +141,7 @@ export default {
     align-items: center;
     font-size: 24px;
     line-height: 24px;
+    user-select: none;
   }
 }
 </style>
