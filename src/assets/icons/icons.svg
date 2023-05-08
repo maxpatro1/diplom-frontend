@@ -33,7 +33,15 @@
     <path fill-rule="evenodd" clip-rule="evenodd" d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#3F88BC"/>
   </symbol>
 
-  <svg id="radio-not-checked" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="radio-not-checked" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="12" r="7.5" stroke="#8C8C8C"/>
-  </svg>
+  </symbol>
+
+  <symbol id="lab-start" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 12V8.65839C5 4.50954 7.93799 2.81058 11.533 4.885L14.4335 6.55581L17.3339 8.22661C20.929 10.301 20.929 13.699 17.3339 15.7734L14.4335 17.4442L11.533 19.115C7.93799 21.1894 5 19.4905 5 15.3416V12Z" fill="#D31919"/>
+  </symbol>
+
+  <symbol id="lab-stop" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.8 19.11V4.89C10.8 3.54 10.2933 3 9.01333 3H5.78667C4.50667 3 4 3.54 4 4.89V19.11C4 20.46 4.50667 21 5.78667 21H9.01333C10.2933 21 10.8 20.46 10.8 19.11ZM20 19.11V4.89C20 3.54 19.4933 3 18.2133 3H14.9867C13.7156 3 13.2 3.54 13.2 4.89V19.11C13.2 20.46 13.7067 21 14.9867 21H18.2133C19.4933 21 20 20.46 20 19.11Z" fill="#3F88BC"/>
+  </symbol>
 </svg>
